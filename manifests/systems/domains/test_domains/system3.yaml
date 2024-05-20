@@ -1,0 +1,24 @@
+components:
+  test_domain.system3:
+    title: СистемаТест3
+    entity: collections
+    links:
+      - id: test_domain.system1
+        direction: '<--'
+        title: Связь3
+
+contexts:
+  system3.L0:
+    title: Контекст L0 - Взаимодействие с пользователями
+    location: Тестовый домен 1/СистемаТест3
+    extra-links: false
+    components:
+      - test_domain.system3
+
+  system3.L1:
+    title: Контекст L1
+    location: Тестовый домен 1/СистемаТест3/L1
+    extra-links: false
+    components:
+      - test_domain.system1
+      - test_domain.system3
