@@ -2,7 +2,7 @@ components:
   resource_management.EDO:
     title: 01.02 - 1C Электронный документооборот
     entity: system
-    status: current-evolving
+    status: non-target
     links:
       - id: resource_management.ZIC_employees
         title: Согласование заявок

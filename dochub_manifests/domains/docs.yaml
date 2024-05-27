@@ -1,0 +1,101 @@
+imports:
+  - datasets.yaml
+
+docs:
+  docs.table.evolving:
+    #title: Дорабатываемые системы
+    type: table
+    location: Таблица систем по статусам/02 Дорабатываемые
+    headers:
+      - value: Система
+        text: Система
+        sortable: true
+        align: left
+      - value: Сущность
+        text: Сущность
+        sortable: true
+        align: left
+      - value: Статус
+        text: Статус
+        sortable: true
+        align: left
+    $prototype: docs.table.select   # Родительская таблица
+    origin: docs.all_systems      # Базовый источник данных
+
+    source: >                # JSONata запрос к архитектуре
+      (
+         $[Статус="current-evolving"]
+       )
+  docs.table.finalized:
+    #title: Дорабатываемые системы
+    type: table
+    location: Таблица систем по статусам/03 Недорабатываемые
+    headers:
+      - value: Система
+        text: Система
+        sortable: true
+        align: left
+      - value: Сущность
+        text: Сущность
+        sortable: true
+        align: left
+      - value: Статус
+        text: Статус
+        sortable: true
+        align: left
+    $prototype: docs.table.select   # Родительская таблица
+    origin: docs.all_systems      # Базовый источник данных
+
+    source: >                # JSONata запрос к архитектуре
+      (
+         $[Статус="current-finalized"]
+       )
+  docs.table.planned:
+    #title: Дорабатываемые системы
+    type: table
+    location: Таблица систем по статусам/01 Запланированные
+    headers:
+      - value: Система
+        text: Система
+        sortable: true
+        align: left
+      - value: Сущность
+        text: Сущность
+        sortable: true
+        align: left
+      - value: Статус
+        text: Статус
+        sortable: true
+        align: left
+    $prototype: docs.table.select   # Родительская таблица
+    origin: docs.all_systems      # Базовый источник данных
+
+    source: >                # JSONata запрос к архитектуре
+      (
+         $[Статус="planned"]
+       )
+
+  docs.table.non_target:
+    #title: Дорабатываемые системы
+    type: table
+    location: Таблица систем по статусам/04 Нецелевые
+    headers:
+      - value: Система
+        text: Система
+        sortable: true
+        align: left
+      - value: Сущность
+        text: Сущность
+        sortable: true
+        align: left
+      - value: Статус
+        text: Статус
+        sortable: true
+        align: left
+    $prototype: docs.table.select   # Родительская таблица
+    origin: docs.all_systems      # Базовый источник данных
+
+    source: >                # JSONata запрос к архитектуре
+      (
+         $[Статус="non-target"]
+       )

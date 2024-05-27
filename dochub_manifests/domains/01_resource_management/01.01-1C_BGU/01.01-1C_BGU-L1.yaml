@@ -2,7 +2,7 @@ components:
   resource_management.BGU:
     title: 01.01 - 1C Бухгалтерия государственного учреждения
     entity: system
-    status: current-evolving
+    status: planned
     links:
       - id: resource_management.ZIC_students
         title: Банковские идентификаторы
@@ -38,3 +38,11 @@ contexts:
       - resource_management.ConturBank
       - customer_services.Tandem
       - resource_management.Kontragent
+docs:
+  resource_management.BGU.ERD:
+    location: Домен 01 - Управление ресурсами/01.01 - 1C Бухгалтерия государственного учреждения/ERD
+    type: plantuml
+    subjects:
+      - resource_management.BGU
+    source:
+      - ERD.puml

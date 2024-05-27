@@ -5,3 +5,4 @@ components:
   test_dep.sotrudnik:
     title: Тестовый сотрудник
     entity: actor
+

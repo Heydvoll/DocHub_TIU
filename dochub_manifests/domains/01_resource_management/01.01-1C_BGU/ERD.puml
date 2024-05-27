@@ -1,0 +1,639 @@
+@startuml 02.19 Калькулятор стоимости инженерных сетей перспективных площадок
+
+title
+Тип документа: ER-диаграмма;
+ИС: 02.19 Калькулятор стоимости инженерных сетей перспективных площадок. Этап 1;
+Версия: 2.0;
+Дата изменения: 26.03.2024г;
+Разработал: Симонов В.Ю.
+end title
+
+hide empty methods
+
+!procedure $fk($name)
+<color:#Silver><&key></color> <b>$name</b>
+!endprocedure
+
+!procedure $pk($name)
+<color:#GoldenRod><&key></color> <b>$name</b>
+!endprocedure
+
+entity "companies (Компании)" as companies #LightYellow{
+    $pk(id) : uuid : Идентификатор компании
+    --
+    $fk(parent_id) : uuid : Идентификатор головной компании компании. Внешний ключ на таблицу **companies**
+    --
+    **name** : string : Наименование поздразделения компании
+    --
+    **type** : enum : Тип подразделения компании (головная, дочерняя)
+    --
+    **inn** : string : ИНН (Идентификационный налоговый номер)
+    --
+    **ogrn** : string : ОГРН (Основной государственный регистрационный номер)
+    --
+    **kpp** : string : КПП (Код причины постановки на учет)
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "roles_permissions (Роль - Право)" as roles_permissions #LightSalmon {
+    $pk(id) : uuid : Идентификатор cвязи Роль-Право (PK)
+    --
+    $fk(role_id) : uuid : Идентфикатор роли (FK)
+    --
+    $fk(permission_id) : uuid : Идентификатор права (FK)
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "permissions (Права)" as permissions #LightSalmon  {
+    $pk(id) : uuid : Идентификатор права (PK)
+    --
+    **name** : varchar(30) : Наименование права
+    --
+    **decription** : varchar(200) : Описание права
+    --
+    **is_active** : boolean : Признак использования права в системе
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+entity "users (Пользователи)" as users #LightSalmon{
+    $pk(id) : uuid : Идентификатор пользователя
+    --
+    **keyсloak_id** : uuid : Идентификатор пользователя в системе KeyСloak
+    --
+    **email** : varchar(256): Электронная почта пользователя
+    --
+    **first_name** : varchar(256) : Имя пользователя
+    --
+    **last_name** : varchar(256): Фамилия пользователя
+    --
+    **middle_name** : varchar(256) : Отчество пользователя
+    --
+    **is_active** : boolean : Признак удаления пользователя из системы
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "users_roles (Пользователь - Роль)" as users_roles #LightSalmon{
+    $pk(id) : uuid : Идентификатор связи пользователь - роль
+    --
+    $fk(user_id) : uuid : Идентификатор пользователя. Внешний ключ  на таблицу **users**
+    --
+    $fk(role_id) : uuid : Идентификатр роли. Внешний ключ на таблицу **roles**
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "roles (Роли)" as roles #LightSalmon{
+    $pk(id) : uuid : Идентфикатор роли
+    --
+    **name** : varchar(30) : Наименование роли
+    --
+    **is_active** : boolean : Признак использования роли в системе
+    --
+    **description** : varchar(300) : Описание роли
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "calculations (Калькуляции)" as calculations #LightYellow{
+    $pk(id): uuid: Идентификатор калькуляции
+    --
+    $fk(project_id): uuid: Идентификатор проекта. Внешний ключ на таблицу **projects**
+    --
+    $fk(object_id): uuid: Идентификатор объекта. Внешний ключ на таблицу **objects**
+    --
+    $fk(calculation_approver_id) : uuid : Идентификатор пользователя, подтвердишвего расчет. Внешний ключ на таблицу **users**
+    --
+    $fk(building_stage_id): uuid: Идентификатор этапа строительства. Внешний ключ на таблицу **building_stages**
+    --
+    **status** : enum : Статус калькуляции [Удалена, Черновик, Рабочая версия, На утверждении, Утвержден]
+    --
+    **number**: int : Порядковый номер калькуляции
+    --
+    **comment**: varchar(200) : Комментарий к расчету
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+
+entity "projects (Проекты)" as projects #LightBlue {
+    $pk(id): uuid: Идентификатор проекта
+    --
+    $fk(company_id) : uuid : Идентификатор компании. Внешний ключ на таблицу **companies**
+    --
+    $fk(parent_project_id) : uuid : Идентификатор проекта. Для связки расчетов по одному проекту. Внешний ключ на таблицу **projects**
+    --
+    **mdm_id** : uuid : Уникальный идентификатор проекта в 1C МДМ
+    --
+    $fk(city_id): uuid: Идентификатор города. Внешний ключ  на таблицу **cities**
+    --
+    $fk(building_stage_id): uuid: Идентификатор этапа строительства. Внешний ключ на таблицу **building_stages**
+    --
+    **name**: varchar(50) : Наименование проекта
+    --
+    **full_name**: varchar(100) : Описание проекта
+    --
+    **is_сancel**: boolean : Признак пометки удаления
+    --
+    **modification_date_utc**: string <date-time> : Универсальное(UTC) дата и время Модификации в формате ISO
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "objects (Объекты)" as objects #LightBlue{
+    $pk(id): uuid: Идентификатор объекта
+    --
+    $fk(project_id): uuid: Идентификатор проекта. Внешний ключ на таблицу **projects**
+    --
+    **mdm_id** : uuid : Уникальный идентификатор объекта строительства в системе 1С МДМ
+    --
+    **mdm_project_id** : uuid : Идентификатор MDM проекта
+    --
+    $fk(object_type_id): uuid: Идентификатор вида объекта. Внешний ключ на таблицу **object_types**
+    --
+    **name**: varchar(50) : Наименование объекта
+    --
+	**full_name** : varchar(100) : Описание объекта
+	--
+    **is_сancel**: boolean : Признак пометки удаления
+    --
+    **modification_date_utc**: string <date-time> : Универсальное(UTC) дата и время Модификации в формате ISO
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "object_types (Виды объектов строительства)" as object_types #LightBlue {
+    $pk(id): uuid: Уникальный идентификатор вида объекта в 1C МДМ
+    --
+    **code** : varchar(30) : Код объекта в системе 1С МДМ
+    --
+    **name**: varchar(30) : Наименование вида объекта
+    --
+    **note**: string : Комментарий
+    --
+    **is_cancel**: boolean : Признак удаления
+    --
+    **modification_date_utc**: string <date-time>: Универсальное(UTC) дата и время Модификации в формате ISO
+}
+entity "tei_values (Значения ТЭП)" as tei_values #LightYellow{
+    $pk(id): uuid: Идентификатор значения ТЭП
+    --
+    $fk(object_id): uuid: Идентификатор объекта. Внешний ключ на таблицу **objects**
+    --
+    $fk(tei_type_id): uuid: Идентификатор ТЭП. Внешний ключ на таблицу **tei_types**
+    --
+    $fk(building_stage_id): uuid: Идентификатор этапа строительства. Внешний ключ на таблицу **building_stages**
+    --
+    **value**: double : Значение ТЭП
+    --
+    **value_passport**: double : Значение ТЭП из паспорта объекта
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "tei_types (Типы ТЭП)" as tei_types #LightBlue{
+    $pk(id): uuid: Идентификатор типа ТЭП
+    --
+    **mdm_id**: string : Уникальный идентификатор ТЭП в системе 1С МДМ
+    --
+    **name**: string : Наименование
+    --
+    **regulatory_name**: string : Нормативное наименование
+    --
+    $fk(unit_id): uuid: Идентификатор единицы измерения. Внешний ключ на таблицу **units**
+    --
+    **unit_name**: string : Наименование ед. измерения
+    --
+    **description**: string : Описание ТЭП
+    --
+    **is_cancel**: boolean : Признак пометки удаления
+    --
+    **comment**: string : Примечание к типу показателя
+    --
+    **modification_date_utc**: string : Универсальное(UTC) дата и время Модификации в формате ISO
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "network_load_values (Значения нагрузок инж. сетей)" as network_load_values #LightYellow {
+    $pk(id): uuid: Идентификатор значения нагрузки на сеть
+    --
+    $fk("calculation_id"): uuid: Идентификатор калькуляции. Внешний ключ на таблицу **calculations**
+    --
+    $fk(load_type_id): uuid: Идентификатор типа нагрузки. Внешний ключ на таблицу **load_types**
+    --
+    **value**: float: Значение нагрузки на инж. сеть
+    --
+    **value_per_square_meter**: float: Удельное значение нагрузки в расчете на 1м2 общей реализуемой площади
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "load_types (Типы нагрузок на инж. сети)" as load_types #LightYellow{
+    $pk(id): uuid: Идентификатор типа нагрузки на инж. сеть
+    --
+    $fk(unit_id): uuid: Идентификатор единицы измерения. Внешний ключ на таблицу **units**
+    --
+    **engineering_network_type**: enum: Тип инженерной сети [Электроснабжение, Теплоснабжение, Водоснабжение,Газоснабжение, Водоотведение, Газоснабжение, Ливневая канализация]
+    --
+    **service_name**: string: Служебное наименование нагрузки
+    --
+    **name**: string: Название типа нагрузки
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "object_types_tei_types (Связка тип объекта - тип ТЭП)" as object_types_tei_types #LightYellow{
+    $pk(id): uuid: Идентификатор связи тип объекта - тип показателя
+    --
+    $fk(object_type_id): uuid: Идентификатор вида объекта. Внешний ключ на таблицу **object_types**
+    --
+    $fk(tei_type_id): uuid: Идентификатор типа показателя. Внешний ключ на таблицу **tei_types**
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "cities (Города)" as cities  #LightBlue{
+    $pk(id): uuid: Идентификатор города
+    --
+    **code** : varchar(30) : Код объекта в системе 1С МДМ
+    --
+    **name**: string : Наименование
+    --
+    **is_cancel**: boolean : Признак удаления
+    --
+    **modification_date_utc**: string <date-time> : Универсальное(UTC) дата и время Модификации в формате ISO
+}
+
+entity "units (Единица измерения)" as units #lightBlue {
+    $pk("id") : uuid : Идентификатор единицы измерения
+    --
+    **mdm_id** : uuid : Идентификатор MDM единицы измерения
+    --
+    **code** : string : Код элемента в системе MDM
+    --
+    **name** : string : Название
+    --
+    **full_name** : string: Полное наименование
+    --
+    **int_abb** : string : Международное сокращение
+    --
+    **is_cancel**: boolean : Признак пометки удаления
+    --
+    **modification_date_utc**: string <date-time> : Универсальное(UTC) дата и время Модификации в формате ISO
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "infrastructure_object_types (Виды объектов инфраструктуры)" as infrastructure_object_types #lightyellow{
+    $pk(id): uuid: Идентификатор вида объекта инфраструктуры
+    --
+    **name**: string : Наименование вида
+    --
+    **comment**: string: Примечание
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "сalculation_parameter_values (Значения параметров калькуляции)" As сalculation_parameter_values #lightyellow {
+    $pk(id): uuid: Идентификатор значения
+    --
+    $fk("calculation_id"): uuid: Идентификатор калькуляции. Внешний ключ на таблицу **calculations**
+    --
+    $fk(object_type_id): uuid: Идентификатор вида объекта. Внешний ключ на таблицу **object_types**
+    --
+    $fk("сalculation_parameter_id"): uuid: Идентификатор типа показателя. Внешний ключ на таблицу **сalculation_parameters**
+    --
+    **value**: double: Значение параметра калькуляции
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "reference_values (Референсные значения)" As reference_values #lightyellow {
+    $pk(id): uuid: Идентификатор референса
+    --
+    $fk(city_id): uuid: Идентификатор города. Внешний ключ  на таблицу **cities**
+    --
+    $fk(load_type_id) uuid: Идентификатор типа нагрузки. Внешний ключ на таблицу **load_types**
+    --
+    $fk(object_type_id): uuid: Идентификатор вида объекта. Внешний ключ на таблицу **object_types**
+    --
+    **value**: double: Значение референса
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "constant_values (Константные значения)" as constant_values #lightyellow {
+    $pk(id) : uuid : Идентификатор значения
+    --
+    $fk(infrastructure_object_type_id): uuid: Идентификатор вида объекта инфраструктуры. Внешний ключ на таблицу **infrastructure_object_types**
+    --
+    $fk(city_id): uuid: Идентификатор города. Внешний ключ  на таблицу **cities**
+    --
+    $fk(unit_id): uuid: Идентификатор единицы измерения. Внешний ключ на таблицу **units**
+    --
+    $fk(constant_type_id): uuid: Идентификатор типа константы. Внешний ключ на таблицу **constant_types**
+    --
+    **floor_levels**: int: Этажность
+    --
+    **value**: double: Значение константы
+    --
+    **comment**: string: Комментарий
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+entity "constant_types (Типы констант)" as constant_types #lightyellow {
+    $pk(id) : uuid : Идентификатор параметра
+    --
+    **service_name**: string: Служебное наименование константы
+    --
+    **name**: string: Наименование константы
+    --
+    **comment**: string: Комментарий
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+entity "building_stages (Этапы строительства)" as building_stages #LightBlue {
+    $pk(id): uuid : Уникальный идентификатор этапа строительства в системе 1С МДМ
+    --
+    **code**: string: Код
+    --
+    **name**: string: Короткое наименование
+    --
+    **full_name**: string: Полное наименование
+    --
+    **description**: string: Описание этапа строительства
+    --
+    **is_cancel**: boolean : Признак пометки удаления
+    --
+    **modification_date_utc**: string <date-time> : Универсальное(UTC) дата и время Модификации в формате ISO
+}
+
+entity "сalculation_parameters (Параметры калькуляции)" as сalculation_parameters #lightyellow {
+    $pk(id) : uuid : Идентификатор параметра
+    --
+    $fk(unit_id): uuid: Идентификатор единицы измерения. Внешний ключ на таблицу **units**
+    --
+    **service_name**: string: Служебное наименование параметра
+    --
+    **name**: string: Наименование параметра
+    --
+    **comment**: string: Комментарий
+    --
+    **created_at**: TIMESTAMP, nullable : Слепок времени создания строки
+    --
+    $fk(created_by): uuid, nullable : Идентификатор пользователя или системы, создавшего строку. Внешний ключ на таблицу **users**
+    --
+    **updated_at**: TIMESTAMP, nullable : Слепок времени последнего изменения строки
+    --
+    $fk(updated_by): uuid, nullable : Идентификатор пользователя или системы, изменившего строку. Внешний ключ на таблицу **users**
+    --
+    **deleted_at**: TIMESTAMP, nullable : Слепок времени удаления строки
+    --
+    $fk(deleted_by): uuid, nullable : Идентификатор пользователя или системы, удалившего строку. Внешний ключ на таблицу **users**
+}
+
+units::id ||--{ сalculation_parameters::unit_id
+
+cities::id ||--{ reference_values::city_id
+reference_values::object_type_id }--|| object_types::id
+
+
+projects::building_stage_id }--|| building_stages::id
+building_stages::id ||--{ calculations::building_stage_id
+tei_values::building_stage_id }--|| building_stages::id
+
+constant_types::id ||--{ constant_values::constant_type_id
+
+reference_values::load_type_id }--|| load_types::id
+
+companies::id ||--{ projects::company_id
+
+
+calculations::id ||--{ сalculation_parameter_values::calculation_id
+сalculation_parameter_values::object_type_id }--|| object_types::id
+сalculation_parameter_values::сalculation_parameter_id }--|| сalculation_parameters::id
+
+constant_values::infrastructure_object_type_id }--|| infrastructure_object_types::id
+constant_values::unit_id }--|| units::id
+constant_values::city_id }--|| cities::id
+
+users::id ||--{ users_roles::user_id
+users_roles::role_id }--|| roles::id
+users::id ||--{ calculations::calculation_approver_id
+
+roles::id ||--{ roles_permissions::role_id
+roles_permissions::permission_id }--|| permissions::id
+
+object_types::id ||--{ object_types_tei_types::object_type_id
+object_types_tei_types::tei_type_id }--|| tei_types::id
+
+objects::object_type_id }--|| object_types::id
+objects::id ||--{ tei_values::object_id
+tei_values::tei_type_id }--|| tei_types::id
+units::id ||--{ tei_types::unit_id
+
+
+load_types::id ||--{ network_load_values::load_type_id
+load_types::unit_id }--|| units::id
+
+objects::id ||--{ calculations::object_id
+projects::id ||--{ calculations::project_id
+projects::id ||--{ objects::project_id
+
+calculations::id ||--{ network_load_values::calculation_id
+
+cities::id ||--{ projects::city_id
+
+@enduml

@@ -1,3 +1,4 @@
 imports:
   - contexts/root.yaml
   - components/root.yaml
+  - docs/root.yaml

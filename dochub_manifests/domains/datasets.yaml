@@ -1,0 +1,17 @@
+datasets:
+  docs.all_systems:
+    source: >
+      (
+        $DISTINCT_COMPONENTS := $distinct([components.$spread().(
+          $COMPONENT := $;
+          $COMPONENT_ID := $keys()[0];
+          $.*.{
+            "Система": $COMPONENT.*.title,
+            "Сущность": $COMPONENT.*.entity,
+            "Статус":  $COMPONENT.*.status
+            }
+          )]);
+      
+        $FILTERED_COMPONENTS := $DISTINCT_COMPONENTS[$.Сущность = "system"];
+      
+      )
