@@ -1,0 +1,7 @@
+components:
+  test_dep:
+    title: Тестовый департамент
+    entity: collections
+  test_dep.sotrudnik:
+    title: Тестовый сотрудник
+    entity: actor

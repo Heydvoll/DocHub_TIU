@@ -1,0 +1,36 @@
+components:
+  resource_management.EDO:
+    title: 01.02 - 1C Электронный документооборот
+    entity: system
+    status: current-evolving
+    links:
+      - id: resource_management.ZIC_employees
+        title: Согласование заявок
+        direction: ---->
+      - id: resource_management.Obshchepit
+        title: Согласование заявок
+        direction: ---->
+      - id: resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
+        title: Согласование заявок
+        direction: ---->
+      - id: resource_management.BGU
+        title: Согласование заявок
+        direction: ---->
+contexts:
+  resource_management.EDO:
+    title: 01.02 - 1C Электронный документооборот - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 01 - Управление ресурсами/01.02 - 1C Электронный документооборот/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - resource_management.EDO
+
+  resource_management.EDO.L1:
+    title: 01.02 - 1C Электронный документооборот - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 01 - Управление ресурсами/01.02 - 1C Электронный документооборот/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.EDO
+      - resource_management.ZIC_employees
+      - resource_management.Obshchepit
+      - resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
+      - resource_management.BGU

@@ -1,0 +1,7 @@
+imports:
+  - actors/root.yaml
+docs:
+  dochub.welcome:
+    title: Моя стартовая страница
+    type: markdown
+    source: dochub_welcome.md

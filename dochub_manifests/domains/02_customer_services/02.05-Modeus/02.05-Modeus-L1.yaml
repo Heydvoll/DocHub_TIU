@@ -1,0 +1,22 @@
+components:
+  customer_services.Modeus:
+    title: 02.05 - Modeus
+    entity: system
+    status: current-finalized
+
+contexts:
+  customer_services.Modeus:
+    title: 02.05 - Modeus - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 02 - Пользовательские сервисы/02.05 - Modeus/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - customer_services.Modeus
+
+  customer_services.Modeus.L1:
+    title: 02.05 - Modeus - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 02 - Пользовательские сервисы/02.05 - Modeus/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - customer_services.Modeus
+      - resource_management.ZIC_employees
+      - customer_services.Tandem

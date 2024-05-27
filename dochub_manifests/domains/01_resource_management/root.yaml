@@ -1,0 +1,35 @@
+imports:
+  - 01.01-1C_BGU/01.01-1C_BGU-L1.yaml
+  - 01.02-1C_EDO/01.02-1C_EDO-L1.yaml
+  - 01.03-1C_Kontragent/01.03-1C_Kontragent-L1.yaml
+  - 01.04-1C_Obshchepit/01.04-1C_Obshchepit-L1.yaml
+  - 01.05-1C_ZakupkiGosudarstvennogoUchrezhdeniya/01.05-1C_ZakupkiGosudarstvennogoUchrezhdeniya-L1.yaml
+  - 01.06-1C_ZIC_employees/01.06-1C_ZIC_employees-L1.yaml
+  - 01.07-Antiplagiat/01.07-Antiplagiat-L1.yaml
+  - 01.08-BazaRaspisaniya/01.08-BazaRaspisaniya-L1.yaml
+  - 01.09-BibliotechnyjInformacionnyjKompleks/01.09-BibliotechnyjInformacionnyjKompleks-L1.yaml
+  - 01.10-ConturBank/01.10-ConturBank-L1.yaml
+  - 01.11-Diplomirovanie/01.11-Diplomirovanie-L1.yaml
+  - 01.12-EIS_Zakupki/01.12-EIS_Zakupki-L1.yaml
+  - 01.13-FederalnyjFondStrahovaniya/01.13-FederalnyjFondStrahovaniya-L1.yaml
+  - 01.14-FIS_GIA/01.14-FIS_GIA-L1.yaml
+  - 01.15-KassovyeSistemy/01.15-KassovyeSistemy-L1.yaml
+  - 01.16-MMIS_Lab/01.16-MMIS_Lab-L1.yaml
+  - 01.17-OTC_MARKET/01.17-OTC_MARKET-L1.yaml
+  - 01.18-Proktoring/01.18-Proktoring-L1.yaml
+  - 01.19-1C_ZIC_sdudents/01.19-1C_ZIC_sdudents-L1.yaml
+  - 01.20-1C_Otchet/01.20-1C_Otchet-L1.yaml
+
+components:
+  resource_management:
+    title: Домен 01 - Управление ресурсами
+    entity: collections
+
+contexts:
+  resource_management:
+    title: Домен 01 - Управление ресурсами - L1 (В масштабе взаимодействия систем)
+    location: Домен 01 - Управление ресурсами
+    extra-links: false
+    components:
+      - resource_management
+      - resource_management.*

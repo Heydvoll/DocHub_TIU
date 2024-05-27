@@ -1,0 +1,42 @@
+components:
+  customer_services.Tandem:
+    title: 02.08 - Tandem
+    entity: system
+    status: current-evolving
+    links:
+      - id: resource_management.MMIS_Lab
+        title: Обмен данными
+        direction: ---->
+      - id: customer_services.Modeus
+        title: Учебный план
+        direction: ---->
+      - id: resource_management.Diplomirovanie
+        title: Приказы, данные о студентах
+        direction: ---->
+      - id: resource_management.BGU
+        title: Информация по договорам на обучение и проживании в общежитиях
+        direction: ---->
+      - id: resource_management.ZIC_students
+        title: Данные о студентах
+        direction: ---->
+contexts:
+  customer_services.Tandem:
+    title: 02.08 - Tandem - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 02 - Пользовательские сервисы/02.08 - Tandem/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - customer_services.Tandem
+
+  customer_services.Tandem.L1:
+    title: 02.08 - Tandem - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 02 - Пользовательские сервисы/02.08 - Tandem/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - customer_services.Tandem
+      - resource_management.MMIS_Lab
+      - customer_services.Modeus
+      - resource_management.Diplomirovanie
+      - resource_management.BGU
+      - resource_management.ZIC_students
+      - customer_services.ServisPostuplenieOnline
+      - resource_management.FIS_GIA

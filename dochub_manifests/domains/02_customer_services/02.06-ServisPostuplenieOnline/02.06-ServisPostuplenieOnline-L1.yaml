@@ -1,0 +1,25 @@
+components:
+  customer_services.ServisPostuplenieOnline:
+    title: 02.06 - Сервис ''Поступление в ВУЗ онлайн''
+    entity: system
+    status: current-finalized
+    links:
+      - id: customer_services.Tandem
+        title: Данные об объеме и структуре приема, информация о поступающих, приказы о зачислении
+        direction: ---->
+
+contexts:
+  customer_services.ServisPostuplenieOnline:
+    title: 02.06 - Сервис ''Поступление в ВУЗ онлайн'' - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 02 - Пользовательские сервисы/02.06 - Сервис ''Поступление в ВУЗ онлайн''/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - customer_services.ServisPostuplenieOnline
+
+  customer_services.ServisPostuplenieOnline.L1:
+    title: 02.06 - Сервис ''Поступление в ВУЗ онлайн'' - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 02 - Пользовательские сервисы/02.06 - Сервис ''Поступление в ВУЗ онлайн''/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - customer_services.ServisPostuplenieOnline
+      - customer_services.Tandem

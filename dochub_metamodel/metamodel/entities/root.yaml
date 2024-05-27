@@ -1,0 +1,3 @@
+imports:
+  - contexts/root.yaml
+  - components/root.yaml

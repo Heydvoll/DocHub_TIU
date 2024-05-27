@@ -1,0 +1,5 @@
+imports:
+  - domains/01_resource_management/root.yaml
+  - domains/02_customer_services/root.yaml
+  - domains/03_infrastructure_services/root.yaml
+  - common/root.yaml

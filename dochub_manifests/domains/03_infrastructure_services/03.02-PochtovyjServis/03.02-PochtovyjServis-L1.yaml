@@ -1,0 +1,22 @@
+components:
+  infrastructure_services.PochtovyjServis:
+    title: 03.02 - Почтовый сервис
+    entity: system
+    status: current-finalized
+
+contexts:
+  infrastructure_services.PochtovyjServis:
+    title: 03.02 - Почтовый сервис - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 03 - Инфраструктурные сервисы/03.02 - Почтовый сервис/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - infrastructure_services.PochtovyjServis
+
+  infrastructure_services.PochtovyjServis.L1:
+    title: 03.02 - Почтовый сервис - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 03 - Инфраструктурные сервисы/03.02 - Почтовый сервис/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - infrastructure_services.PochtovyjServis
+      - infrastructure_services.ActiveDirectory
+

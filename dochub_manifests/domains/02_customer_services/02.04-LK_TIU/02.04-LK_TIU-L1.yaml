@@ -1,0 +1,26 @@
+components:
+  customer_services.LK_TIU:
+    title: 02.04 - Личный кабинет ТИУ
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem
+        title: Данные об абитуриентах и студентах
+        direction: ---->
+contexts:
+  customer_services.LK_TIU:
+    title: 02.04 - Личный кабинет ТИУ - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 02 - Пользовательские сервисы/02.04 - Личный кабинет ТИУ/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - customer_services.LK_TIU
+
+  customer_services.LK_TIU.L1:
+    title: 02.04 - Личный кабинет ТИУ - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 02 - Пользовательские сервисы/02.04 - Личный кабинет ТИУ/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - customer_services.LK_TIU
+      - customer_services.LK_Abiturienta
+      - customer_services.LK_Studenta
+      - customer_services.Tandem

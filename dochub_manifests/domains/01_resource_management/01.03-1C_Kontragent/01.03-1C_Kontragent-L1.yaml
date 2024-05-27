@@ -1,0 +1,28 @@
+components:
+  resource_management.Kontragent:
+    title: 01.03 - 1C Контрагент
+    entity: system
+    status: current-finalized
+    links:
+      - id: resource_management.BGU
+        title: Информация о контраганте
+        direction: ---->
+      - id: resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
+        title: Информация о контраганте
+        direction: ---->
+contexts:
+  resource_management.Kontragent:
+    title: 01.03 - 1C Контрагент - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 01 - Управление ресурсами/01.03 - 1C Контрагент/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - resource_management.Kontragent
+
+  resource_management.Kontragent.L1:
+    title: 01.02 - 1C Электронный документооборот - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 01 - Управление ресурсами/01.03 - 1C Контрагент/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.Kontragent
+      - resource_management.BGU
+      - resource_management.ZakupkiGosudarstvennogoUchrezhdeniya

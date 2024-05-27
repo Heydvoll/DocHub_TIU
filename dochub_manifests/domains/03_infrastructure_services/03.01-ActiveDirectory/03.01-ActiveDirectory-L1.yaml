@@ -1,0 +1,53 @@
+components:
+  infrastructure_services.ActiveDirectory:
+    title: 03.01 - ActiveDirectory
+    entity: system
+    status: current-finalized
+    links:
+      - id: infrastructure_services.PochtovyjServis
+        title: Аутентификация и авторизация
+        direction: <----
+      - id: customer_services.Tandem
+        title: Аутентификация и авторизация
+        direction: <----
+      - id: resource_management.ZIC_students
+        title: Аутентификация и авторизация
+        direction: <----
+      - id: resource_management.BGU
+        title: Аутентификация и авторизация
+        direction: <----
+      - id: resource_management.ZIC_employees
+        title: Аутентификация и авторизация
+        direction: <----
+      - id: resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
+        title: Аутентификация и авторизация
+        direction: <----
+      - id: customer_services.Site_TIU
+        title: Аутентификация и авторизация
+        direction: <----
+      - id: resource_management.Obshchepit
+        title: Аутентификация и авторизация
+        direction: <----
+contexts:
+  infrastructure_services.ActiveDirectory:
+    title: 03.01 - ActiveDirectory - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 03 - Инфраструктурные сервисы/03.01 - ActiveDirectory/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - infrastructure_services.ActiveDirectory
+
+  infrastructure_services.ActiveDirectory.L1:
+    title: 03.01 - ActiveDirectory - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 03 - Инфраструктурные сервисы/03.01 - ActiveDirectory/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - infrastructure_services.ActiveDirectory
+      - infrastructure_services.PochtovyjServis
+      - customer_services.Tandem
+      - resource_management.ZIC_students
+      - resource_management.BGU
+      - resource_management.ZIC_employees
+      - resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
+      - customer_services.Site_TIU
+      - resource_management.Obshchepit
+

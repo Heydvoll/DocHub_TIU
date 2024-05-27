@@ -1,0 +1,23 @@
+imports:
+  - 02.01-Educon2/02.01-Educon2-L1.yaml
+  - 02.02-LK_Abiturienta/02.02-LK_Abiturienta-L1.yaml
+  - 02.03-LK_Studenta/02.03-LK_Studenta-L1.yaml
+  - 02.04-LK_TIU/02.04-LK_TIU-L1.yaml
+  - 02.05-Modeus/02.05-Modeus-L1.yaml
+  - 02.06-ServisPostuplenieOnline/02.06-ServisPostuplenieOnline-L1.yaml
+  - 02.07-Site_TIU/02.07-Site_TIU-L1.yaml
+  - 02.08-Tandem/02.08-Tandem-L1.yaml
+
+components:
+  customer_services:
+    title: Домен 02 - Пользовательские сервисы
+    entity: collections
+
+contexts:
+  customer_services:
+    title: Домен 02 - Пользовательские сервисы - L1 (В масштабе взаимодействия систем)
+    location: Домен 02 - Пользовательские сервисы
+    extra-links: false
+    components:
+      - customer_services
+      - customer_services.*

@@ -1,0 +1,119 @@
+entities:
+  contexts:
+    # Предопределенные конфигурационные параметры для генерации PlantUML
+    config:
+      # Какой движок будет использоваться для рендера
+      renderCore: graphviz # elk / smetana / graphviz
+    # API функции, используемые для генерации PlantUML
+    api:
+      # Генерирует на данных о компонентах и областях PlantUML диаграмму компонентов
+      # Входящие параметры:
+      #   manifest   - данные архитектуры
+      #   components - список компонентов в формате fetchComponents
+      #   areas      - список компонентов в формате fetchAreas
+      #   focusId    - идентификатор требующий фокус
+      makePumlComponentDiagram: >
+        (
+          /* Обрабатываем параметры */
+          $areas := areas;
+          $components := components;
+          $manifest := manifest;
+          $focusId := focusId;
+        
+          $stopBracketsCount := function($a, $b) {$a = 0 ? "}\n" : $a & "}\n"};
+          
+          $join($map($areas, function($domain, $index) {(
+              $result := "";
+              $component := $lookup($components, $domain);
+              $originComponent := $lookup($manifest.components, $domain);
+              $context := $lookup($manifest.contexts, $domain);
+        
+              /* Определяем является ли элемент областью */
+              $isAreaBegin := $areas[$index + 1].$substring(0, $domain.$length() + 1) = $domain & ".";
+        
+              $result := $result & ($isAreaBegin ? (
+                  $title := $originComponent.title ? $originComponent.title : (
+                      $context.title ? $context.title : $domain
+                  );
+                      "$Region("
+                      & $domain
+                      & ",\"[[/architect/components/"
+                      & $domain
+                      & " " & $title
+                      & "]]\", ) {\n";
+              ) : "");
+        
+              /* Если домен является компонентом, выводим его на диаграмму */
+              $result := $result & (
+                  $not($isAreaBegin) and $component ? (
+                      /* Открываем секцию компонента */
+                      $entity := $component.entity ? $component.entity : "component";
+                      $color := $domain = $focusId 
+                          ? "#fff2b2" 
+                          : $component.status = "planned"
+                              ? "#90EE90"       
+                                  : $component.status = "current-evolving"
+                                      ? "#87CEFA"
+                                      : $component.status = "current-finalized"
+                                          ? "#A9A9A9"
+                                          : $component.status = "non-target"
+                                              ? "#E9967A"
+                                              : "";
+                      $result := "$Entity(\"" 
+                          & $entity 
+                          & "\", \""
+                          & "[[/architect/components/" & $domain & " " & $component.title & "]]"
+                          & "\", " 
+                          & $domain                          
+                          & ", \""
+                          & $component.type
+                          & "\", \""
+                          & $color
+                          & "\" )\n";
+        
+                      /* Добавляем аспекты */
+                      $result := $result & $join($component.aspects.(
+                          $aspect := $lookup($manifest.aspects, $);
+                          $title := $aspect ? $aspect.title : $;
+                          $ = $focusId ?
+                          "$EntityAspect(\""
+                          & $entity
+                          & "\",\" <back:#fff2b2>"
+                          & $title
+                          & "\")\n"
+                          :
+                          "$EntityAspect(\""
+                          & $entity
+                          & "\",\"* [[/architect/aspects/"
+                          & $encodeUrlComponent($)
+                          & " " 
+                          & $title
+                          & "]]\")\n"
+                      ));
+        
+                      /* Если компонент является контекстом добавляем дрилдаун */
+                      $context ? 
+                          $result := $result & "$EntityExpand(\""
+                          & $entity
+                          & "\", "
+                          & $domain
+                          & ")\n";
+        
+                      /* Закрываем секцию компонента */
+                      $result := $result & 
+                          "$EntityEnd(\""
+                          & $entity
+                          & "\")\n";
+                  ): "";
+              );
+        
+              /* Определяем, что область нужно закрыть*/
+              $result & (
+                $count($split($domain, ".")) > 1 
+                and ($count($split($domain, ".")) > $count($split($areas[$index + 1], "."))
+              ) ? (
+                $m := $areas[$index + 1] ? 0 : -1;
+                $reduce([0..($count($split($domain, ".")) - $count($split($areas[$index + 1], ".")) + $m)], $stopBracketsCount);
+              ) : "");
+          )}));
+        )

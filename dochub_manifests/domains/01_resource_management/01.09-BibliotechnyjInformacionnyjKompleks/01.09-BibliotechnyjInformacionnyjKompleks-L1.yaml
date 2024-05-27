@@ -1,0 +1,21 @@
+components:
+  resource_management.BibliotechnyjInformacionnyjKompleks:
+    title: 01.09 - Библиотечный информационный комплекс
+    entity: system
+    status: current-evolving
+
+contexts:
+  resource_management.BibliotechnyjInformacionnyjKompleks:
+    title: 01.09 - Библиотечный информационный комплекс - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 01 - Управление ресурсами/01.09 - Библиотечный информационный комплекс/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - resource_management.BibliotechnyjInformacionnyjKompleks
+
+  resource_management.BibliotechnyjInformacionnyjKompleks.L1:
+    title: 01.09 - Библиотечный информационный комплекс - L1 - Взаимодействие с другими системами
+    location: Домен 01 - Управление ресурсами/01.09 - Библиотечный информационный комплекс/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.BibliotechnyjInformacionnyjKompleks
+      - customer_services.Educon2

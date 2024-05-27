@@ -1,0 +1,21 @@
+components:
+  resource_management.EIS_Zakupki:
+    title: 01.12 - ЕИС Закупки
+    entity: system
+    status: current-finalized
+
+contexts:
+  resource_management.EIS_Zakupki:
+    title: 01.12 - ЕИС Закупки - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 01 - Управление ресурсами/01.12 - ЕИС Закупки/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - resource_management.EIS_Zakupki
+
+  resource_management.EIS_Zakupki.L1:
+    title: 01.12 - ЕИС Закупки - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 01 - Управление ресурсами/01.12 - ЕИС Закупки/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.EIS_Zakupki
+      - resource_management.ZakupkiGosudarstvennogoUchrezhdeniya

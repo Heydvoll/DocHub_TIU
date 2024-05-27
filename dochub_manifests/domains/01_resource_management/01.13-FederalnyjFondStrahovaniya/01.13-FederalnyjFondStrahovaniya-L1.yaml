@@ -1,0 +1,26 @@
+components:
+  resource_management.FederalnyjFondStrahovaniya:
+    title: 01.13 - Федеральный фонд страхования
+    entity: system
+    status: current-finalized
+    links:
+      - id: resource_management.ZIC_employees
+        title: Обмен данными
+        direction: ---->
+
+
+contexts:
+  resource_management.FederalnyjFondStrahovaniya:
+    title: 01.13 - Федеральный фонд страхования - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 01 - Управление ресурсами/01.13 - Федеральный фонд страхования/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - resource_management.FederalnyjFondStrahovaniya
+
+  resource_management.FederalnyjFondStrahovaniya.L1:
+    title: 01.13 - Федеральный фонд страхования - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 01 - Управление ресурсами/01.13 - Федеральный фонд страхования/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.FederalnyjFondStrahovaniya
+      - resource_management.ZIC_employees

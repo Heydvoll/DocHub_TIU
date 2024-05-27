@@ -1,0 +1,18 @@
+imports:
+  - 03.01-ActiveDirectory/03.01-ActiveDirectory-L1.yaml
+  - 03.02-PochtovyjServis/03.02-PochtovyjServis-L1.yaml
+
+
+components:
+  infrastructure_services:
+    title: Домен 03 - Инфраструктурные сервисы
+    entity: collections
+
+contexts:
+  infrastructure_services:
+    title: Домен 03 - Инфраструктурные сервисы - L1 (В масштабе взаимодействия систем)
+    location: Домен 03 - Инфраструктурные сервисы
+    extra-links: false
+    components:
+      - infrastructure_services
+      - infrastructure_services.*

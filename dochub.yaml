@@ -1,5 +1,6 @@
 imports:
-  - manifests/systems/root.yaml
+  - dochub_manifests/root.yaml
+  - dochub_metamodel/root.yaml
 
 
 

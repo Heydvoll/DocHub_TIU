@@ -1,0 +1,40 @@
+components:
+  resource_management.BGU:
+    title: 01.01 - 1C Бухгалтерия государственного учреждения
+    entity: system
+    status: current-evolving
+    links:
+      - id: resource_management.ZIC_students
+        title: Банковские идентификаторы
+        direction: ---->
+      - id: resource_management.EDO
+        title: Создания заявок
+        direction: ---->
+      - id: resource_management.ConturBank
+        title: Передача данных
+        direction: ---->
+      #Связи с пользователями
+      - id: test_dep.sotrudnik
+        direction: <----
+
+contexts:
+  resource_management.BGU:
+    title: 01.01 - 1C Бухгалтерия государственного учреждения - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 01 - Управление ресурсами/01.01 - 1C Бухгалтерия государственного учреждения/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - resource_management.BGU
+      - test_dep.sotrudnik
+
+  resource_management.BGU.L1:
+    title: 01.01 - 1C Бухгалтерия государственного учреждения - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 01 - Управление ресурсами/01.01 - 1C Бухгалтерия государственного учреждения/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.BGU
+      - resource_management.ZIC_students
+      - resource_management.ZIC_employees
+      - resource_management.EDO
+      - resource_management.ConturBank
+      - customer_services.Tandem
+      - resource_management.Kontragent

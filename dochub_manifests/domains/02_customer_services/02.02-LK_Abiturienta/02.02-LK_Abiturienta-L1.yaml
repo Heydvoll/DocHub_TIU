@@ -1,0 +1,24 @@
+components:
+  customer_services.LK_Abiturienta:
+    title: 02.02 - Личный кабинет абитуриента
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.LK_TIU
+        title: Данные абитуриента
+        direction: ---->
+contexts:
+  customer_services.LK_Abiturienta:
+    title: 02.02 - Личный кабинет абитуриента - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 02 - Пользовательские сервисы/02.02 - Личный кабинет абитуриента/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - customer_services.LK_Abiturienta
+
+  customer_services.LK_Abiturienta.L1:
+    title: 02.02 - Личный кабинет абитуриента - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 02 - Пользовательские сервисы/02.02 - Личный кабинет абитуриента/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - customer_services.LK_Abiturienta
+      - customer_services.LK_TIU

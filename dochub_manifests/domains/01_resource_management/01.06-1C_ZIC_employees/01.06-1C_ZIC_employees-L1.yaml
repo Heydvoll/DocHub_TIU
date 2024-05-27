@@ -1,0 +1,49 @@
+components:
+  resource_management.ZIC_employees:
+    title: 01.06 - 1C Зарплата и кадры (Сотрудники)
+    entity: system
+    status: current-evolving
+    links:
+      - id: resource_management.FederalnyjFondStrahovaniya
+        title: Обмен данными
+        direction: ---->
+      - id: customer_services.Site_TIU
+        title: Данные о сотрудниках
+        direction: ---->
+      - id: customer_services.Modeus
+        title: Данные о сотрудниках
+        direction: ---->
+      - id: resource_management.BGU
+        title: Данные о сотрудниках и подразделениях
+        direction: ---->
+      - id: resource_management.ConturBank
+        title: Передача данных
+        direction: ---->
+      - id: resource_management.Otchet
+        title: Обмен данными
+        direction: ---->
+      - id: resource_management.EDO
+        title: Создание заявок
+        direction: ---->
+
+contexts:
+  resource_management.ZIC_employees:
+    title: 01.06 - 1C Зарплата и кадры (Сотрудники) - L0 (Система в масштабе взаимодействия с пользователями)
+    location: Домен 01 - Управление ресурсами/01.06 - 1C Зарплата и кадры (Сотрудники)/L0 - Взаимодействие с пользователями
+    extra-links: false
+    components:
+      - resource_management.ZIC_employees
+
+  resource_management.ZIC_employees.L1:
+    title: 01.06 - 1C Зарплата и кадры (Сотрудники) - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 01 - Управление ресурсами/01.06 - 1C Зарплата и кадры (Сотрудники)/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.ZIC_employees
+      - resource_management.FederalnyjFondStrahovaniya
+      - customer_services.Site_TIU
+      - customer_services.Modeus
+      - resource_management.BGU
+      - resource_management.ConturBank
+      - resource_management.Otchet
+      - resource_management.EDO
