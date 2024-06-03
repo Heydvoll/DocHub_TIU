@@ -2,28 +2,23 @@ components:
   resource_management.EDO:
     title: 01.02 - 1C Электронный документооборот
     entity: system
-    status: non-target
+    status: current-evolving
+    description: Система для электронного документооборота, позволяющая обмениваться документами в электронном виде между организациями.
     links:
       - id: resource_management.ZIC_employees
-        title: Согласование заявок
+        title: Согласование заявок на отпуск, командировки, закупки и другие административные операции.
         direction: ---->
       - id: resource_management.Obshchepit
-        title: Согласование заявок
+        title: Согласование заявок на закупку товаров и услуг для общепита.
         direction: ---->
       - id: resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
-        title: Согласование заявок
+        title: Согласование заявок на закупки для нужд государственного учреждения.
         direction: ---->
       - id: resource_management.BGU
-        title: Согласование заявок
+        title: Согласование заявок на административные и хозяйственные операции.
         direction: ---->
-contexts:
-  resource_management.EDO:
-    title: 01.02 - 1C Электронный документооборот - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.02 - 1C Электронный документооборот/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.EDO
 
+contexts:
   resource_management.EDO.L1:
     title: 01.02 - 1C Электронный документооборот - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.02 - 1C Электронный документооборот/L1 - Взаимодействие с другими системами

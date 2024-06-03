@@ -1,0 +1,25 @@
+rules:
+  validators:
+    dochub.aspects:
+      title: Проверка начилия аспекта
+    dochub.aspects.empty:
+      title: У компонента не указан аспект
+      source: >
+        (
+          $MANIFEST := $;
+          $MANIFEST.components.$spread().(
+            $COMPONENT_ID := $keys()[0];
+            $.*.{
+              "id": $COMPONENT_ID,
+              "entity": entity,
+              "aspects": aspects
+            }
+          )[($not(aspects) or $count(aspects) = 0) and (entity="system" or entity="queue" or entity="database" or entity="component")].(
+            {
+              "uid": "$smlt-aspects-empty-" & id,
+              "location": "/architect/components/" & id,
+              "correction": "Укажите аспект компонента",
+              "description": "У каждого компонента должен быть указан аспект"
+            }
+          )[]
+        )

@@ -1,0 +1,69 @@
+# Сводка по архитектурному компоненту
+entities:
+  components:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          incoming_data: # Идентификатор виджета
+            # Иконка виджета
+            icon: settings
+            # Название виджета
+            title: Входящие данные
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: incoming_data
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 40
+            # Определяем стиль виджета
+      incoming_data:
+        title: Сводка по компоненту
+        params:
+          type: object
+          properties:
+            component:
+              title: Идентификатор компонента
+              type: string
+          required:
+            - component
+        type: table
+        headers:
+          - value: title
+            text: Источник
+            sortable: true
+            align: left
+          - value: link_title
+            text: Описание взаимодействия
+            sortable: true
+            align: left
+          - value: link_direction
+            text: Направление связи
+            sortable: true
+            align: left
+          - value: component_title
+            text: Приёмник
+            sortable: true
+            align: left
+
+        source: >
+          (
+            $COMPONENT_ID := $params.component;
+            
+            $components := [components.$spread().{
+          "id": $keys()[0],
+          "title": *.title,
+          "link": *.links[$[id=$COMPONENT_ID]]
+          }];
+            $filteredComponents := $components[$exists(link)];
+            $filteredComponents.{
+          "id": id,
+          "title": title,
+          "link_id": link.id,
+          "link_title": link.title,
+          "link_direction": link.direction,
+          "component_title": $components[id = $COMPONENT_ID][0].title
+          }
+            
+          )

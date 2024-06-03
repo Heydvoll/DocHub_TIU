@@ -3,44 +3,40 @@ components:
     title: 01.06 - 1C Зарплата и кадры (Сотрудники)
     entity: system
     status: current-evolving
+    description: Программный продукт системы 1С, предназначенный для автоматизации процессов расчёта заработной платы и управления кадровыми ресурсами предприятия.
+    technologies:
+      - mssql
     links:
-      - id: resource_management.FederalnyjFondStrahovaniya
+      - id: resource_management.FondSocialnogoStrahovaniya
         title: Обмен данными
         direction: ---->
       - id: customer_services.Site_TIU
-        title: Данные о сотрудниках
+        title: Передача данных о сотрудниках, включая ФИО, должность, контакты, департамент и другие данные, необходимые для отображения на сайте.
         direction: ---->
       - id: customer_services.Modeus
-        title: Данные о сотрудниках
+        title: Данные о сотрудниках, включающие учебные планы, расписания занятий, нагрузку преподавателей и другие академические данные.
         direction: ---->
       - id: resource_management.BGU
-        title: Данные о сотрудниках и подразделениях
+        title: Информация о сотрудниках и подразделениях, включая штатное расписание, финансирование, административные данные.
         direction: ---->
       - id: resource_management.ConturBank
-        title: Передача данных
+        title: Передача данных для автоматизации банковских операций, таких как перечисление зарплаты, налогов и других выплат.
         direction: ---->
       - id: resource_management.Otchet
-        title: Обмен данными
+        title: Передача данных для формирования отчетности, включая финансовую отчетность, отчеты о заработной плате, налоговые декларации и т.д.
         direction: ---->
       - id: resource_management.EDO
-        title: Создание заявок
+        title: Создание заявок на различные операции, такие как отпуск, командировки, закупки и другие административные процессы.
         direction: ---->
 
 contexts:
-  resource_management.ZIC_employees:
-    title: 01.06 - 1C Зарплата и кадры (Сотрудники) - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.06 - 1C Зарплата и кадры (Сотрудники)/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.ZIC_employees
-
   resource_management.ZIC_employees.L1:
     title: 01.06 - 1C Зарплата и кадры (Сотрудники) - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.06 - 1C Зарплата и кадры (Сотрудники)/L1 - Взаимодействие с другими системами
     extra-links: false
     components:
       - resource_management.ZIC_employees
-      - resource_management.FederalnyjFondStrahovaniya
+      - resource_management.FondSocialnogoStrahovaniya
       - customer_services.Site_TIU
       - customer_services.Modeus
       - resource_management.BGU

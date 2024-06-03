@@ -3,30 +3,24 @@ components:
     title: 02.08 - Tandem
     entity: system
     status: current-evolving
+    description: Платформа для управления и автоматизации различных процессов внутри организации или учебного заведения.
     links:
       - id: resource_management.MMIS_Lab
         title: Обмен данными
         direction: ---->
       - id: customer_services.Modeus
-        title: Учебный план
+        title: Учебный план, включающий курсы, их описание, преподавателей, расписание.
         direction: ---->
       - id: resource_management.Diplomirovanie
-        title: Приказы, данные о студентах
+        title: Данные о студентах, включая приказы о зачислении, успеваемость, дисциплинарные меры.
         direction: ---->
       - id: resource_management.BGU
-        title: Информация по договорам на обучение и проживании в общежитиях
+        title: Информация по договорам на обучение и проживание в общежитиях, включая
         direction: ---->
       - id: resource_management.ZIC_students
-        title: Данные о студентах
+        title: Данные о студентах, такие как персональная информация, академическая успеваемость, дисциплинарные меры.
         direction: ---->
 contexts:
-  customer_services.Tandem:
-    title: 02.08 - Tandem - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 02 - Пользовательские сервисы/02.08 - Tandem/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - customer_services.Tandem
-
   customer_services.Tandem.L1:
     title: 02.08 - Tandem - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 02 - Пользовательские сервисы/02.08 - Tandem/L1 - Взаимодействие с другими системами

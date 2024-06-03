@@ -3,19 +3,13 @@ components:
     title: 01.16 - ММИС Лаборатория
     entity: system
     status: current-finalized
+    description: Программного обеспечения для автоматизации управления учебным процессом.
     links:
       - id: customer_services.Tandem
-        title: Обмен данными
+        title: Передача данных включает результаты лабораторных работ, оценки, отчеты и другую академическую информацию.
         direction: ---->
 
 contexts:
-  resource_management.MMIS_Lab:
-    title: 01.16 - ММИС Лаборатория - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.16 - ММИС Лаборатория/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.MMIS_Lab
-
   resource_management.MMIS_Lab.L1:
     title: 01.16 - ММИС Лаборатория - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.16 - ММИС Лаборатория/L1 - Взаимодействие с другими системами

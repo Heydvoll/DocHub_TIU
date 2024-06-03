@@ -1,0 +1,82 @@
+# Сводка по архитектурному компоненту
+entities:
+  components:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          technologies: # Идентификатор виджета
+            # Иконка виджета
+            icon: settings
+            # Название виджета
+            title: Применяемые технологии
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: technologies
+            # Расположение слева
+            align: ">"
+            # Порядок расположения
+            order: 50
+            # Определяем стиль виджета
+      technologies:
+        type: table
+        headers:
+          - value: title
+            text: Технология
+            sortable: true
+            align: left
+          - value: section_title
+            text: Тип
+            sortable: true
+            align: left
+          - value: status
+            text: Статус
+            sortable: true
+            align: left
+
+        source: >
+          (
+              $COMPONENT_ID := $params.component;
+              $manifest := $;
+              
+              /* Плоский список секций технологий */
+              $sections := $manifest.technologies.sections.$spread().{
+            "id": $.$keys()[0],
+            "title": $.*.title
+            };
+              /* Плоский список технологий c джойном к секциям */
+              $tech := $manifest.technologies.items.$spread().{
+            "id": $.$keys()[0],
+            "title": $.*.title,
+            "status": $.*.status,
+            "section": $.*.section@$ts.$sections@$s[$ts = $s.id].{
+              "id": $ts,
+              "title": $s.title
+            }
+            };
+              
+              $components := [
+              components.$spread().{
+            "id": $keys()[0],
+            "link": "/architect/components/" & $keys()[0],
+            "technologies": *.technologies
+            }
+            ];
+              
+              $filtered_component := $filter($components, function($component) {
+              $component.id = $COMPONENT_ID
+            });
+              $filtered_technologies := $filtered_component[0].technologies;
+              
+              $filtered_tech := $filter($tech, function($technology) {
+              $technology.id in $filtered_technologies
+            });
+              /* Развернуть поле "section" */
+              $expanded_tech := $filtered_tech.{
+            "id": $.id,
+            "title": $.title,
+            "status": $.status,
+            "section_id": $.section.id,
+            "section_title": $.section.title
+            }[];                            
+          )

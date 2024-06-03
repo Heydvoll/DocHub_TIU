@@ -3,24 +3,18 @@ components:
     title: 01.05 - 1C Закупки государственного учреждения
     entity: system
     status: current-evolving
+    description: Система для автоматизации процессов планирования, подготовки и проведения закупок
     links:
       - id: resource_management.EDO
-        title: Создания заявок на закупки
+        title: Создание заявок на закупки товаров и услуг для нужд учреждения.
         direction: ---->
       - id: resource_management.OTC_MARKET
-        title: ???
+        title: План закупок.
         direction: ---->
       - id: resource_management.EIS_Zakupki
-        title: ???
+        title: План закупок.
         direction: ---->
 contexts:
-  resource_management.ZakupkiGosudarstvennogoUchrezhdeniya:
-    title: 01.05 - 1C Закупки государственного учреждения - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.05 - 1C Закупки государственного учреждения/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
-
   resource_management.ZakupkiGosudarstvennogoUchrezhdeniya.L1:
     title: 01.05 - 1C Закупки государственного учреждения - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.05 - 1C Закупки государственного учреждения/L1 - Взаимодействие с другими системами

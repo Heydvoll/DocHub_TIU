@@ -1,0 +1,75 @@
+# Сводка по архитектурному компоненту
+entities:
+  components:
+    presentations:
+      # Встраиваемся в презентацию бланка
+      blank:
+        # Добавляем собственный виджет
+        widgets:
+          outgoing_data: # Идентификатор виджета
+            # Иконка виджета
+            icon: settings
+            # Название виджета
+            title: Исходящие данные
+            # Идентификатор презентации, которая будет использоваться в виджете
+            presentation: outgoing_data
+            # Расположение слева
+            align: "<"
+            # Порядок расположения
+            order: 40
+            # Определяем стиль виджета
+      outgoing_data:
+        title: Сводка по компоненту
+        params:
+          type: object
+          properties:
+            component:
+              title: Идентификатор компонента
+              type: string
+          required:
+            - component
+        type: table
+        headers:
+          - value: component_title
+            text: Источник
+            sortable: true
+            align: left
+          - value: title
+            text: Описание взаимодействия
+            sortable: true
+            align: left
+          - value: direction
+            text: Направление связи
+            sortable: true
+            align: left
+          - value: linked_component_title
+            text: Приёмник
+            sortable: true
+            align: left
+
+        source: >
+          (
+            $COMPONENT_ID := $params.component;
+            
+            $components := [components.$spread().{
+          "id": $keys()[0],
+          "title": *.title,
+          "links": *.links
+          }];
+            
+            $filtered_component := $filter($components, function($component) {
+            $component.id = $COMPONENT_ID
+          })[0];
+            
+            $filtered_component.links.{
+          "component_id": $COMPONENT_ID,
+          "component_title": $filtered_component.title,
+          "id": id,
+          "title": title,
+          "direction": direction,
+          "linked_component_title": $filter($components, function($component) {
+            $component.id = id
+          })[0].title
+          }
+              
+          )

@@ -5,13 +5,13 @@ imports:
 
 components:
   infrastructure_services:
-    title: Домен 03 - Инфраструктурные сервисы
+    title: Домен 03 - Централизованные ИТ-сервисы
     entity: collections
 
 contexts:
   infrastructure_services:
-    title: Домен 03 - Инфраструктурные сервисы - L1 (В масштабе взаимодействия систем)
-    location: Домен 03 - Инфраструктурные сервисы
+    title: Домен 03 - Централизованные ИТ-сервисы - L1 (В масштабе взаимодействия систем)
+    location: Домен 03 - Централизованные ИТ-сервисы
     extra-links: false
     components:
       - infrastructure_services

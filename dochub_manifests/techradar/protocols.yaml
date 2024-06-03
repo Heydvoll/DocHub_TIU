@@ -1,0 +1,54 @@
+technologies:
+  items:
+    graphql:
+      title: GraphQL
+      section: protocols
+      status: trial
+      link: https://graphql.org/
+    
+    rest:
+      title: REST
+      section: protocols
+      status: adopt
+    
+    grpc:
+      title: gRPC
+      section: protocols
+      status: assess
+      link: https://grpc.io/
+
+    websockets:
+      title: Websockets
+      section: protocols
+      status: assess
+      link: https://websockets.spec.whatwg.org/
+    
+    apache_kafka:
+      title: Apache Kafka
+      section: protocols
+      status: adopt
+      link: https://kafka.apache.org/
+    
+    ldap:
+      title: LDAP
+      section: protocols
+      status: adopt
+      link: https://ru.wikipedia.org/wiki/LDAP
+    
+    smtp:
+      title: SMTP
+      section: protocols
+      status: adopt
+      link: https://ru.wikipedia.org/wiki/SMTP
+
+    elasticsearch:
+      title: Elasticsearch
+      section: protocols
+      status: adopt
+      link: https://www.elastic.co/elasticsearch
+
+    amqp:
+      title: RabbitMQ
+      section: protocols
+      status: adopt
+      link: https://www.rabbitmq.com

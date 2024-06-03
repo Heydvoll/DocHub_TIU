@@ -3,18 +3,12 @@ components:
     title: 01.20 - 1C Отчетность
     entity: system
     status: current-evolving
+    description: Сервис передачи отчетности в контролирующие органы из программ «1С:Предприятие»
     links:
       - id: resource_management.ZIC_employees
         title: Обмен данными
         direction: ---->
 contexts:
-  resource_management.Otchet:
-    title: 01.20 - 1C Отчетность - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.20 - 1C Отчетность/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.Otchet
-
   resource_management.Otchet.L1:
     title: 01.20 - 1C Отчетность - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.20 - 1C Отчетность/L1 - Взаимодействие с другими системами

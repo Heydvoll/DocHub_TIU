@@ -3,15 +3,9 @@ components:
     title: 01.19 - 1C Зарплата и кадры (Студенты)
     entity: system
     status: current-evolving
+    description: Система для автоматизации расчета выплаты стипендий студентам.
 
 contexts:
-  resource_management.ZIC_students:
-    title: 01.19 - 1C Зарплата и кадры (Студенты) - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.19 - 1C Зарплата и кадры (Студенты)/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.ZIC_students
-
   resource_management.ZIC_students.L1:
     title: 01.19 - 1C Зарплата и кадры (Студенты) - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.19 - 1C Зарплата и кадры (Студенты)/L1 - Взаимодействие с другими системами

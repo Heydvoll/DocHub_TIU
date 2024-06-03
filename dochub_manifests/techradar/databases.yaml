@@ -1,0 +1,55 @@
+technologies:
+  items:
+    mssql:
+      title: СУБД MsSQL
+      status: adopt
+      section: databases
+
+    mysql:
+      title: СУБД MySQL
+      status: adopt
+      section: databases
+
+    postgresql:
+      title: СУБД PostgreSQL
+      status: adopt
+      section: databases
+
+    mongodb:
+      title: СУБД MongoDB
+      status: trial
+      section: databases
+
+    redis:
+      title: Key-value хранилище Redis
+      status: trial
+      section: databases
+
+    minio:
+      title: MinIO
+      status: hold
+      section: databases
+      link: https://min.io/
+
+    s3:
+      title: Объектное хранилище S3
+      status: adopt
+      section: databases
+
+    couchdb:
+      title: Apache CouchDB
+      status: trial
+      section: databases
+      link: https://couchdb.apache.org/
+
+    greenplum:
+      title: Greenplum Database
+      status: assess
+      section: databases
+      link: https://greenplum.org/
+
+    clickhouse:
+      title: ClickHouse
+      status: assess
+      section: databases
+      link: https://clickhouse.com/

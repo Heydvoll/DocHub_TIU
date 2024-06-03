@@ -1,0 +1,20 @@
+components:
+  resource_management.FondSocialnogoStrahovaniya:
+    title: 01.13 - Фонд социального страхования
+    entity: system
+    status: current-finalized
+    description: Государственный сервис, предоставляющий услуги социального страхования граждан.
+    links:
+      - id: resource_management.ZIC_employees
+        title: Передача информации о сотрудниках, такой как персональные данные, страховые номера, заработная плата и другие данные, необходимые для страховых взносов.
+        direction: ---->
+
+
+contexts:
+  resource_management.FondSocialnogoStrahovaniya.L1:
+    title: 01.13 - Федеральный фонд страхования - L1 (Система в масштабе взаимодействия с другими системами)
+    location: Домен 01 - Управление ресурсами/01.13 - Федеральный фонд страхования/L1 - Взаимодействие с другими системами
+    extra-links: false
+    components:
+      - resource_management.FondSocialnogoStrahovaniya
+      - resource_management.ZIC_employees

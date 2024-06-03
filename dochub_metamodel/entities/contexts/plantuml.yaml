@@ -1,17 +1,8 @@
 entities:
   contexts:
-    # Предопределенные конфигурационные параметры для генерации PlantUML
     config:
-      # Какой движок будет использоваться для рендера
       renderCore: graphviz # elk / smetana / graphviz
-    # API функции, используемые для генерации PlantUML
     api:
-      # Генерирует на данных о компонентах и областях PlantUML диаграмму компонентов
-      # Входящие параметры:
-      #   manifest   - данные архитектуры
-      #   components - список компонентов в формате fetchComponents
-      #   areas      - список компонентов в формате fetchAreas
-      #   focusId    - идентификатор требующий фокус
       makePumlComponentDiagram: >
         (
           /* Обрабатываем параметры */

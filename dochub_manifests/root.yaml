@@ -4,3 +4,4 @@ imports:
   - domains/03_infrastructure_services/root.yaml
   - domains/docs.yaml
   - common/root.yaml
+  - techradar/root.yaml

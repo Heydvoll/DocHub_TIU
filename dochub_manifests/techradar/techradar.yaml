@@ -1,0 +1,12 @@
+technologies:
+  sections:
+    language:
+      title: Языки программирования
+    frameworks:
+      title: Платформы и фреймворки
+    databases:
+      title: Хранилища и базы данных
+    protocols:
+      title: Протоколы и транспорты
+    tools:
+      title: Прочие инструменты

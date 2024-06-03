@@ -1,0 +1,25 @@
+rules:
+  validators:
+    dochub.description:
+      title: Проверка наличия описания
+    dochub.description.empty:
+      title: У компонента не указано описание
+      source: >
+        (
+          $MANIFEST := $;
+          $MANIFEST.components.$spread().(
+            $COMPONENT_ID := $keys()[0];
+            $.*.{
+              "id": $COMPONENT_ID,
+              "entity": entity,
+              "description": description
+            }
+          )[($not(description) or $count(description) = 0) and (entity="system" or entity="queue" or entity="database" or entity="component")].(
+            {
+              "uid": "$smlt-description-empty-" & id,
+              "location": "/architect/components/" & id,
+              "correction": "Укажите описание компонента",
+              "description": "У каждого компонента должно быть указано описание"
+            }
+          )[]
+        )

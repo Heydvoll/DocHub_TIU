@@ -2,3 +2,6 @@ imports:
   - base.yaml
   - summary.yaml
   - hierarchy.yaml
+  - technologies.yaml
+  - outgoing_data.yaml
+  - incoming_data.yaml

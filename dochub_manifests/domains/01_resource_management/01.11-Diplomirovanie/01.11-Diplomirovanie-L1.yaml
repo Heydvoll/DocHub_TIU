@@ -3,15 +3,9 @@ components:
     title: 01.11 - Дипломирование
     entity: system
     status: current-evolving
+    description: Сервис для управления процессом дипломирования студентов.
 
 contexts:
-  resource_management.Diplomirovanie:
-    title: 01.11 - Дипломирование - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.11 - Дипломирование/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.Diplomirovanie
-
   resource_management.Diplomirovanie.L1:
     title: 01.11 - Дипломирование - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.11 - Дипломирование/L1 - Взаимодействие с другими системами

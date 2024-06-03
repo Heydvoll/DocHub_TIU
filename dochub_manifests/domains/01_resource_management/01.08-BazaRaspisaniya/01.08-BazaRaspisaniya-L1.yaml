@@ -3,18 +3,12 @@ components:
     title: 01.08 - База расписания
     entity: system
     status: current-evolving
+    description: Система для хранения и управления расписанием занятий, экзаменов и мероприятий учебного заведения.
     links:
       - id: customer_services.Site_TIU
-        title: Расписание
+        title: Расписание занятий, включающее даты, время, аудитории, преподавателей, учебные дисциплины и прочую информацию, необходимую для отображения расписания на сайте.
         direction: ---->
 contexts:
-  resource_management.BazaRaspisaniya:
-    title: 01.08 - База расписания - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.08 - База расписания/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.BazaRaspisaniya
-
   resource_management.BazaRaspisaniya.L1:
     title: 01.08 - База расписания - L1 - Взаимодействие с другими системами
     location: Домен 01 - Управление ресурсами/01.08 - База расписания/L1 - Взаимодействие с другими системами

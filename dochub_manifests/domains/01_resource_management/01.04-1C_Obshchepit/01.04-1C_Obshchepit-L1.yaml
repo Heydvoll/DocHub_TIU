@@ -3,19 +3,13 @@ components:
     title: 01.04 - 1C Общепит
     entity: system
     status: current-evolving
+    description: Система для автоматизации оперативного, бухгалтерского и налогового учета по производству питания в учебном заведении.
     links:
       - id: resource_management.EDO
-        title: Создание заявок
+        title: Создание заявок на закупку продуктов, оборудования, инвентаря и других товаров и услуг, необходимых для работы общепита.
         direction: ---->
 
 contexts:
-  resource_management.Obshchepit:
-    title: 01.04 - 1C Общепит - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.04 - 1C Общепит/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.Obshchepit
-
   resource_management.Obshchepit.L1:
     title: 01.04 - 1C Общепит - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.04 - 1C Общепит/L1 - Взаимодействие с другими системами

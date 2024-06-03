@@ -1,0 +1,25 @@
+rules:
+  validators:
+    dochub.status:
+      title: Проверка наличия статуса
+    dochub.status.empty:
+      title: У компонента не указан статус
+      source: >
+        (
+          $MANIFEST := $;
+          $MANIFEST.components.$spread().(
+            $COMPONENT_ID := $keys()[0];
+            $.*.{
+              "id": $COMPONENT_ID,
+              "entity": entity,
+              "status": status
+            }
+          )[($not(status) or $count(status) = 0) and (entity="system" or entity="queue" or entity="database" or entity="component")].(
+            {
+              "uid": "$smlt-status-empty-" & id,
+              "location": "/architect/components/" & id,
+              "correction": "Укажите статус компонента",
+              "description": "У каждого компонента должен быть указан статус"
+            }
+          )[]
+        )

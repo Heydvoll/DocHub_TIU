@@ -1,0 +1,66 @@
+technologies:
+  items:
+    1c:
+      title: Платформа 1С Предприятие
+      section: frameworks
+      status: adopt
+
+    fastapi:
+      title: FastAPI
+      section: frameworks
+      status: adopt
+      link: https://fastapi.tiangolo.com/
+
+    django:
+      title: Django
+      section: frameworks
+      status: hold
+      link: https://www.djangoproject.com/
+
+    vue.js:
+      title: Vue.JS
+      section: frameworks
+      status: adopt
+      link: https://vuejs.org/
+
+    react:
+      title: React
+      section: frameworks
+      status: adopt
+      link: https://react.dev/
+
+    node.js:
+      title: Node.JS
+      section: frameworks
+      status: adopt
+      link: https://nodejs.org/en
+
+    next.js:
+      title: Next.JS
+      section: frameworks
+      status: adopt
+      link: https://nextjs.org/
+
+    camunda:
+      title: Camunda
+      section: frameworks
+      status: trial
+      link: https://camunda.com/
+
+    svelte.js:
+      title: Svelte.js
+      section: frameworks
+      status: hold
+      link: https://svelte.dev/
+
+    nestjs:
+      title: NestJS
+      section: frameworks
+      status: trial
+      link: https://nestjs.com/
+
+    react_native:
+      title: React Native
+      section: frameworks
+      status: adopt
+      link: https://reactnative.dev/

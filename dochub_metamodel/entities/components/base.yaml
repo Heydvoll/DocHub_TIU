@@ -19,7 +19,9 @@ entities:
             status:
               title: Статус компонента
               type: string
-
+            description:
+              title: Описание компонента
+              type: string
           required:
             - title
             - entity

@@ -3,15 +3,9 @@ components:
     title: 01.07 - Антиплагиат
     entity: system
     status: current-evolving
+    description: Программное обеспечение, предназначенное для проверки текстов на наличие заимствований и определения уровня оригинальности.
 
 contexts:
-  resource_management.Antiplagiat:
-    title: 01.07 - Антиплагиат - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.07 - Антиплагиат/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.Antiplagiat
-
   resource_management.Antiplagiat.L1:
     title: 01.07 - Антиплагиат - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.07 - Антиплагиат/L1 - Взаимодействие с другими системами

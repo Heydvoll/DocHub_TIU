@@ -1,0 +1,28 @@
+rules:
+  validators:
+    dochub:
+      title: Компоненты
+    dochub.technologies:
+      title: Проверка наличия технологий
+    dochub.technologies.empty:
+      title: У компонента не указаны технологии
+      source: >
+        (
+          $MANIFEST := $;
+          $matcher := /^.*[world, swamp]\.partners.*$/;
+          $MANIFEST.components.$spread().(
+            $COMPONENT_ID := $keys()[0];
+            $matcher($COMPONENT_ID) ? '' : $.*.{
+              "id": $COMPONENT_ID,
+              "entity": entity,
+              "technologies": technologies
+            }
+          )[(entity="system" or entity="queue" or entity="database" or entity="component") and ($not(technologies) or $count(technologies) = 0) or ("TBD" in technologies)].(
+            {
+              "uid": "$smlt-technologies-empty-" & id,
+              "location": "/architect/components/" & id,
+              "correction": "Укажите технологии компонента",
+              "description": "У каждого компонента, должен быть указан список технологий"
+            }
+          )
+        )

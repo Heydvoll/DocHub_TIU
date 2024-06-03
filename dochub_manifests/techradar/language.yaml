@@ -1,0 +1,46 @@
+technologies:
+  items:
+    1c_lang:
+      title: Встроенный язык платформы 1С
+      section: language
+      status: adopt
+
+    javascript:
+      title: ЯП Javascript
+      section: language
+      status: adopt
+
+    python:
+      title: ЯП Python
+      section: language
+      status: adopt
+
+    go:
+      title: ЯП Go
+      section: language
+      status: hold
+
+    php:
+      title: ЯП PHP
+      section: language
+      status: hold
+
+    typescript:
+      title: TypeScript
+      section: language
+      status: adopt
+
+    c_sharp:
+      title: C#
+      section: language
+      status: hold
+
+    java:
+      title: Java
+      section: language
+      status: hold
+
+    objective_c:
+      title: Objective-C
+      section: language
+      status: hold

@@ -3,18 +3,12 @@ components:
     title: 02.01 - Educon 2.0
     entity: system
     status: current-evolving
+    description: Образовательная платформа, предназначенная для организации и управления процессами обучения.
     links:
       - id: resource_management.BibliotechnyjInformacionnyjKompleks
-        title: Данные о студентах
+        title: Данные о студентах, такие как ФИО, номер студенческого билета, информация о книгах и учебных материалах, взятых в библиотеке, задолженности.
         direction: ---->
 contexts:
-  customer_services.Educon2:
-    title: 02.01 - Educon 2.0 - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 02 - Пользовательские сервисы/02.01 - Educon 2.0/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - customer_services.Educon2
-
   customer_services.Educon2.L1:
     title: 02.01 - Educon 2.0 - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 02 - Пользовательские сервисы/02.01 - Educon 2.0/L1 - Взаимодействие с другими системами

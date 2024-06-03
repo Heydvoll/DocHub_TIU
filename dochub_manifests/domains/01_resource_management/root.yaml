@@ -11,7 +11,7 @@ imports:
   - 01.10-ConturBank/01.10-ConturBank-L1.yaml
   - 01.11-Diplomirovanie/01.11-Diplomirovanie-L1.yaml
   - 01.12-EIS_Zakupki/01.12-EIS_Zakupki-L1.yaml
-  - 01.13-FederalnyjFondStrahovaniya/01.13-FederalnyjFondStrahovaniya-L1.yaml
+  - 01.13-FondSocialnogoStrahovaniya/01.13-FondSocialnogoStrahovaniya-L1.yaml
   - 01.14-FIS_GIA/01.14-FIS_GIA-L1.yaml
   - 01.15-KassovyeSistemy/01.15-KassovyeSistemy-L1.yaml
   - 01.16-MMIS_Lab/01.16-MMIS_Lab-L1.yaml

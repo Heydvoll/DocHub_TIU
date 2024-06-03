@@ -3,15 +3,9 @@ components:
     title: 01.10 - Контур.Банк
     entity: system
     status: current-finalized
+    description: Онлайн-сервис для управления банковскими операциями и расчетами для бизнеса.
 
 contexts:
-  resource_management.ConturBank:
-    title: 01.10 - Контур.Банк - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.10 - Контур.Банк/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.ConturBank
-
   resource_management.ConturBank.L1:
     title: 01.10 - Контур.Банк - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.10 - Контур.Банк/L1 - Взаимодействие с другими системами

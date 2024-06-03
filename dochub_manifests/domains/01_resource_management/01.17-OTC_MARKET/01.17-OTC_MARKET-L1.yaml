@@ -3,15 +3,9 @@ components:
     title: 01.17 - OTC MARKET
     entity: system
     status: current-finalized
+    description: Электронная торговая площадка для проведения закупок и торгов.
 
 contexts:
-  resource_management.OTC_MARKET:
-    title: 01.17 - OTC MARKET - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.17 - OTC MARKET/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.OTC_MARKET
-
   resource_management.OTC_MARKET.L1:
     title: 01.17 - OTC MARKET - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.17 - OTC MARKET/L1 - Взаимодействие с другими системами

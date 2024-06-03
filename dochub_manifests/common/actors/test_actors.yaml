@@ -1,8 +1,39 @@
 components:
-  test_dep:
+  test_dep1:
     title: Тестовый департамент
     entity: collections
-  test_dep.sotrudnik:
+  test_dep1.otdel1:
+    title: Тестовый отдел 1
+    entity: collections
+  test_dep1.otdel2:
+    title: Тестовый отдел 2
+    entity: collections
+  test_dep1.otdel1.sotrudnik:
     title: Тестовый сотрудник
     entity: actor
+
+  test_dep2:
+    title: Тестовый департамент2
+    entity: collections
+  test_dep2.otdel3:
+    title: Тестовый отдел 1
+    entity: collections
+  test_dep2.otdel4:
+    title: Тестовый отдел 2
+    entity: collections
+  test_dep2.otdel3.sotrudnik:
+    title: Тестовый сотрудник
+    entity: actor
+
+contexts:
+  test_dep:
+    title: Орг структура
+    location: Орг. структура
+    components:
+      - test_dep1
+      - test_dep1.*
+      - test_dep1.*.*
+      - test_dep2
+      - test_dep2.*
+      - test_dep2.*.*
 

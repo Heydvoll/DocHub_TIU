@@ -3,18 +3,12 @@ components:
     title: 01.15 - Кассовые система
     entity: system
     status: current-finalized
+    description: Оборудование для автоматизации кассовых операций и учета продаж.
     links:
       - id: resource_management.Obshchepit
-        title: Отчет по продажам
+        title: Отчеты по продажам, включающие данные о реализованных товарах, суммах продаж, времени и местах продаж.
         direction: ---->
 contexts:
-  resource_management.KassovyeSistemy:
-    title: 01.15 - Кассовые система - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.15 - Кассовые система/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.KassovyeSistemy
-
   resource_management.KassovyeSistemy.L1:
     title: 01.15 - Кассовые система - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.15 - Кассовые система/L1 - Взаимодействие с другими системами

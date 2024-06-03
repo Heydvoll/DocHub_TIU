@@ -2,18 +2,43 @@ imports:
   - datasets.yaml
 
 docs:
+  docs.table.technologies:
+    #title: Дорабатываемые системы
+    type: table
+    location: Сводка по системам/02 Дорабатываемые
+    headers:
+      - value: Система
+        text: Система
+        sortable: true
+        align: left
+      - value: Описание
+        text: Описание
+        sortable: false
+        align: left
+      - value: Статус
+        text: Статус
+        sortable: true
+        align: left
+    $prototype: docs.table.select   # Родительская таблица
+    origin: docs.all_systems      # Базовый источник данных
+
+    source: >                # JSONata запрос к архитектуре
+      (      
+          $[Статус="current-evolving"][]      
+      )  
+
   docs.table.evolving:
     #title: Дорабатываемые системы
     type: table
-    location: Таблица систем по статусам/02 Дорабатываемые
+    location: Сводка по системам/02 Дорабатываемые
     headers:
       - value: Система
         text: Система
         sortable: true
         align: left
-      - value: Сущность
-        text: Сущность
-        sortable: true
+      - value: Описание
+        text: Описание
+        sortable: false
         align: left
       - value: Статус
         text: Статус
@@ -23,21 +48,21 @@ docs:
     origin: docs.all_systems      # Базовый источник данных
 
     source: >                # JSONata запрос к архитектуре
-      (
-         $[Статус="current-evolving"]
-       )
+      (      
+          $[Статус="current-evolving"][]      
+      )
   docs.table.finalized:
     #title: Дорабатываемые системы
     type: table
-    location: Таблица систем по статусам/03 Недорабатываемые
+    location: Сводка по системам/03 Недорабатываемые
     headers:
       - value: Система
         text: Система
         sortable: true
         align: left
-      - value: Сущность
-        text: Сущность
-        sortable: true
+      - value: Описание
+        text: Описание
+        sortable: false
         align: left
       - value: Статус
         text: Статус
@@ -48,20 +73,20 @@ docs:
 
     source: >                # JSONata запрос к архитектуре
       (
-         $[Статус="current-finalized"]
-       )
+         $[Статус="current-finalized"][]      
+      )
   docs.table.planned:
     #title: Дорабатываемые системы
     type: table
-    location: Таблица систем по статусам/01 Запланированные
+    location: Сводка по системам/01 Запланированные
     headers:
       - value: Система
         text: Система
         sortable: true
         align: left
-      - value: Сущность
-        text: Сущность
-        sortable: true
+      - value: Описание
+        text: Описание
+        sortable: false
         align: left
       - value: Статус
         text: Статус
@@ -72,21 +97,21 @@ docs:
 
     source: >                # JSONata запрос к архитектуре
       (
-         $[Статус="planned"]
-       )
+         $[Статус="planned"][]      
+      )
 
   docs.table.non_target:
     #title: Дорабатываемые системы
     type: table
-    location: Таблица систем по статусам/04 Нецелевые
+    location: Сводка по системам/04 Нецелевые
     headers:
       - value: Система
         text: Система
         sortable: true
         align: left
-      - value: Сущность
-        text: Сущность
-        sortable: true
+      - value: Описание
+        text: Описание
+        sortable: false
         align: left
       - value: Статус
         text: Статус
@@ -97,5 +122,30 @@ docs:
 
     source: >                # JSONata запрос к архитектуре
       (
-         $[Статус="non-target"]
-       )
+         $[Статус="non-target"][]      
+      )
+
+  docs.table.all_systems:
+    #title: Дорабатываемые системы
+    type: table
+    location: Сводка по системам/05 Все системы
+    headers:
+      - value: Система
+        text: Система
+        sortable: true
+        align: left
+      - value: Описание
+        text: Описание
+        sortable: false
+        align: left
+      - value: Статус
+        text: Статус
+        sortable: true
+        align: left
+    $prototype: docs.table.select   # Родительская таблица
+    origin: docs.all_systems      # Базовый источник данных
+
+    source: >                # JSONata запрос к архитектуре
+      (
+         $[]    
+      )

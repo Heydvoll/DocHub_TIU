@@ -1,0 +1,132 @@
+technologies:
+
+  items:
+
+    budibase:
+      title: Budibase
+      section: tools
+      status: assess
+      link: https://budibase.com/
+
+    iis:
+      title: Веб-сервер IIS
+      section: tools
+      status: assess
+
+    sqlalchemy:
+      title: SQLAlchemy
+      section: tools
+      status: adopt
+      link: https://www.sqlalchemy.org/
+
+    aiokafka:
+      title: aiokafka
+      section: tools
+      status: adopt
+      link: https://github.com/aio-libs/aiokafka
+
+    strawberry_graphql:
+      title: Strawberry GraphQL
+      section: tools
+      status: assess
+      link: https://strawberry.rocks/
+
+    firebase:
+      title: Firebase
+      section: tools
+      status: adopt
+      link: https://firebase.google.com/
+
+    confluent:
+      title: Confluent
+      section: tools
+      status: trial
+      link: https://www.confluent.io/
+
+    conductor_console:
+      title: Conductor Console
+      section: tools
+      status: trial
+
+    keycloak:
+      title: Keycloak
+      section: tools
+      status: adopt
+      link: https://www.keycloak.org/
+
+    apache_airflow:
+      title: Apache Airflow
+      section: tools
+      status: trial
+      link: https://airflow.apache.org/
+
+    kibana:
+      title: Kibana
+      section: tools
+      status: adopt
+      link: https://www.elastic.co/kibana
+
+    logstash:
+      title: Logstash
+      section: tools
+      status: adopt
+      link: https://www.elastic.co/logstash
+
+    nexus_oss:
+      title: Sonatype Nesux OSS
+      section: tools
+      status: adopt
+      link: https://www.sonatype.com/products/sonatype-nexus-oss
+
+    harbor:
+      title: Harbor
+      section: tools
+      status: adopt
+      link: https://goharbor.io/
+
+    grafana:
+      title: Grafana
+      section: tools
+      status: adopt
+      link: https://grafana.com/
+
+    prometheus:
+      title: Prometheus
+      section: tools
+      status: adopt
+      link: https://prometheus.io/
+
+    kuma:
+      title: Kuma
+      section: tools
+      status: adopt
+      link: https://github.com/louislam/uptime-kuma
+
+    sentry:
+      title: Sentry
+      section: tools
+      status: adopt
+      link: https://sentry.io/
+
+    telethon:
+      title: Telethon
+      section: tools
+      status: trial
+      link: https://docs.telethon.dev/en/stable/
+
+    apollo_server:
+      title: Apollo Server
+      section: tools
+      status: trial
+      link: https://www.apollographql.com/docs/apollo-server/
+
+    ssr:
+      title: SSR
+      section: tools
+      status: adopt
+
+    adminbro:
+      title: AdminBro
+      section: tools
+      status: Assess
+      link: https://adminbro.com/

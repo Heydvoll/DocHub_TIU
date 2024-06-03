@@ -17,7 +17,7 @@ entities:
             # Расположение слева
             align: "<"
             # Порядок расположения
-            order: 10
+            order: 1
             # Определяем стиль виджета
             style:
               margin: 4px
@@ -50,6 +50,10 @@ entities:
                     {
                         "title": "Название компонента",
                         "content": title
+                    },
+                    {  
+                         "title": "Описание компонента",
+                         "content": description  
                     },
                     {
                         "title": "Тип компонента",

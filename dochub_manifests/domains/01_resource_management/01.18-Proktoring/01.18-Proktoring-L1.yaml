@@ -3,15 +3,9 @@ components:
     title: 01.18 - Прокторинг
     entity: system
     status: current-finalized
+    description: Система контроля соблюдения правил во время дистанционного тестирования.
 
 contexts:
-  resource_management.Proktoring:
-    title: 01.18 - Прокторинг - L0 (Система в масштабе взаимодействия с пользователями)
-    location: Домен 01 - Управление ресурсами/01.18 - Прокторинг/L0 - Взаимодействие с пользователями
-    extra-links: false
-    components:
-      - resource_management.Proktoring
-
   resource_management.Proktoring.L1:
     title: 01.18 - Прокторинг - L1 (Система в масштабе взаимодействия с другими системами)
     location: Домен 01 - Управление ресурсами/01.18 - Прокторинг/L1 - Взаимодействие с другими системами
