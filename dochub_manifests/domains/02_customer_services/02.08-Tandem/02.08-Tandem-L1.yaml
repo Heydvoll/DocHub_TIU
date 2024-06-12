@@ -1,3 +1,5 @@
+imports:
+  - 02.08-Tandem-L2.yaml
 components:
   customer_services.Tandem:
     title: 02.08 - Tandem
@@ -7,19 +9,19 @@ components:
     links:
       - id: resource_management.MMIS_Lab
         title: Обмен данными
-        direction: ---->
+        direction: -->
       - id: customer_services.Modeus
         title: Учебный план, включающий курсы, их описание, преподавателей, расписание.
-        direction: ---->
+        direction: -->
       - id: resource_management.Diplomirovanie
         title: Данные о студентах, включая приказы о зачислении, успеваемость, дисциплинарные меры.
-        direction: ---->
+        direction: -->
       - id: resource_management.BGU
         title: Информация по договорам на обучение и проживание в общежитиях, включая
-        direction: ---->
+        direction: -->
       - id: resource_management.ZIC_students
         title: Данные о студентах, такие как персональная информация, академическая успеваемость, дисциплинарные меры.
-        direction: ---->
+        direction: -->
 contexts:
   customer_services.Tandem.L1:
     title: 02.08 - Tandem - L1 (Система в масштабе взаимодействия с другими системами)
@@ -34,3 +36,10 @@ contexts:
       - resource_management.ZIC_students
       - customer_services.ServisPostuplenieOnline
       - resource_management.FIS_GIA
+
+  customer_services.Tandem.L2:
+    title: 02.08 - Tandem - L2 (Модули)
+    location: Домен 02 - Пользовательские сервисы/02.08 - Tandem/L2 - Модули
+    extra-links: false
+    components:
+      - customer_services.Tandem.*

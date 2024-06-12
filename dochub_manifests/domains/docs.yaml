@@ -44,6 +44,10 @@ docs:
         text: Статус
         sortable: true
         align: left
+      - value: Описание_статуса
+        text: Описание статуса
+        sortable: true
+        align: left
     $prototype: docs.table.select   # Родительская таблица
     origin: docs.all_systems      # Базовый источник данных
 
@@ -68,6 +72,10 @@ docs:
         text: Статус
         sortable: true
         align: left
+      - value: Описание_статуса
+        text: Описание статуса
+        sortable: true
+        align: left
     $prototype: docs.table.select   # Родительская таблица
     origin: docs.all_systems      # Базовый источник данных
 
@@ -90,6 +98,10 @@ docs:
         align: left
       - value: Статус
         text: Статус
+        sortable: true
+        align: left
+      - value: Описание_статуса
+        text: Описание статуса
         sortable: true
         align: left
     $prototype: docs.table.select   # Родительская таблица
@@ -117,6 +129,10 @@ docs:
         text: Статус
         sortable: true
         align: left
+      - value: Описание_статуса
+        text: Описание статуса
+        sortable: true
+        align: left
     $prototype: docs.table.select   # Родительская таблица
     origin: docs.all_systems      # Базовый источник данных
 
@@ -140,6 +156,10 @@ docs:
         align: left
       - value: Статус
         text: Статус
+        sortable: true
+        align: left
+      - value: Описание_статуса
+        text: Описание статуса
         sortable: true
         align: left
     $prototype: docs.table.select   # Родительская таблица

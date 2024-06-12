@@ -7,7 +7,7 @@ components:
     links:
       - id: customer_services.Tandem
         title: Данные о студентах, включающие информацию о поступлении, учебные планы, расписания, оценки, приказы о зачислении.
-        direction: ---->
+        direction: -->
 contexts:
   customer_services.LK_TIU.L1:
     title: 02.04 - Личный кабинет ТИУ - L1 (Система в масштабе взаимодействия с другими системами)

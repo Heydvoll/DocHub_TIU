@@ -7,7 +7,7 @@ components:
     links:
       - id: resource_management.BibliotechnyjInformacionnyjKompleks
         title: Данные о студентах, такие как ФИО, номер студенческого билета, информация о книгах и учебных материалах, взятых в библиотеке, задолженности.
-        direction: ---->
+        direction: -->
 contexts:
   customer_services.Educon2.L1:
     title: 02.01 - Educon 2.0 - L1 (Система в масштабе взаимодействия с другими системами)

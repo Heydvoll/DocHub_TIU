@@ -7,7 +7,7 @@ components:
     links:
       - id: customer_services.Tandem
         title: Передача данных включает результаты лабораторных работ, оценки, отчеты и другую академическую информацию.
-        direction: ---->
+        direction: -->
 
 contexts:
   resource_management.MMIS_Lab.L1:

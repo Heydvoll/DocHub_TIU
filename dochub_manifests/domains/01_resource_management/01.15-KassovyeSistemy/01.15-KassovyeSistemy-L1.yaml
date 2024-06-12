@@ -7,7 +7,7 @@ components:
     links:
       - id: resource_management.Obshchepit
         title: Отчеты по продажам, включающие данные о реализованных товарах, суммах продаж, времени и местах продаж.
-        direction: ---->
+        direction: -->
 contexts:
   resource_management.KassovyeSistemy.L1:
     title: 01.15 - Кассовые система - L1 (Система в масштабе взаимодействия с другими системами)

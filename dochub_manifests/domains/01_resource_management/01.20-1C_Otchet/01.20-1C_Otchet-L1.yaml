@@ -7,7 +7,7 @@ components:
     links:
       - id: resource_management.ZIC_employees
         title: Обмен данными
-        direction: ---->
+        direction: -->
 contexts:
   resource_management.Otchet.L1:
     title: 01.20 - 1C Отчетность - L1 (Система в масштабе взаимодействия с другими системами)

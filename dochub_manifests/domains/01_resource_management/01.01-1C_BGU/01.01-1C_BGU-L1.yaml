@@ -5,17 +5,18 @@ components:
     status: current-evolving
     description: Система для автоматизации управления бюджетным учреждением, включающая учет финансов, кадров и хозяйственной деятельности.
     technologies:
-      - mssql
+      - mysql
+      - 1c
     links:
       - id: resource_management.ZIC_students
         title: Банковские идентификаторы студентов для автоматизации финансовых операций.
-        direction: ---->
+        direction: -->
       - id: resource_management.EDO
         title: Создание заявок на закупки, услуги, командировки и другие административные операции.
-        direction: ---->
+        direction: -->
       - id: resource_management.ConturBank
         title: Передача данных для автоматизации банковских операций, таких как оплата за обучение, проживание и другие финансовые транзакции.
-        direction: ---->
+        direction: -->
 
 
 contexts:

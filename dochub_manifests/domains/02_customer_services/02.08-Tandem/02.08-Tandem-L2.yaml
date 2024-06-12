@@ -1,0 +1,172 @@
+components:
+  customer_services.Tandem.educationalPrograms:
+    title: 02.08 - Модуль ''Образовательные программы''
+    entity: system
+    status: current-evolving
+
+  customer_services.Tandem.organisational_structure:
+    title: 02.08 - Модуль ''Организационная структура''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.hr_reestr
+        title: Список должностей
+        direction: -->
+
+  customer_services.Tandem.hr_reestr:
+    title: 02.08 - Модуль ''Кадровый реестр''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.load
+        title: Данные о сотрудниках
+        direction: -->
+      - id: customer_services.Tandem.dormitoriesSettlements
+        title: Данные о сотрудниках
+        direction: -->
+
+  customer_services.Tandem.access_rightSystem:
+    title: 02.08 - Модуль ''Система прав доступа''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.organisational_structure
+        title: Разграничение прав доступа
+        direction: -->
+
+  customer_services.Tandem.educationalContacts:
+    title: 02.08 - Модуль ''Договоры на обучение''
+    entity: system
+    status: current-evolving
+
+  customer_services.Tandem.dormitoriesSettlements:
+    title: 02.08 - Модуль ''Общежития и поселения''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.organisational_structure
+        title: Распределние по общежитиям
+        direction: -->
+
+  customer_services.Tandem.administation:
+    title: 02.08 - Модуль ''Администрирование''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.access_rightSystem
+        title: Контроль доступа
+        direction: -->
+
+  customer_services.Tandem.applicants:
+    title: 02.08 - Модуль ''Абитуриенты (приемная комиссия)''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.educationalContacts
+        title: Список студентов
+        direction: -->
+
+  customer_services.Tandem.educationalPlan:
+    title: 02.08 - Модуль ''Учебный план''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.diplom
+        title: Данные о дисциплинах
+        direction: -->
+      - id: customer_services.Tandem.moveStudents
+        title: Данные из учебного плана
+        direction: -->
+      - id: customer_services.Tandem.BRS
+        title: Перечень дисциплин
+        direction: -->
+
+  customer_services.Tandem.onlineRegistry:
+    title: 02.08 - Модуль ''Онлайн-регистрация абитуриентов''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.applicants
+        title: Заявление абитуриента
+        direction: -->
+
+  customer_services.Tandem.integrationFISGIA:
+    title: 02.08 - Модуль ''Интеграция с ФИС ГИА и приема''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.applicants
+        title: Результаты ЕГЭ
+        direction: -->
+
+  customer_services.Tandem.diplom:
+    title: 02.08 - Модуль ''Дипломирование''
+    entity: system
+    status: current-evolving
+
+  customer_services.Tandem.freelancePublishers:
+    title: 02.08 - Модуль ''Внештатные преподаватели''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.hr_reestr
+        title: Данные о внештатных преподавателях
+        direction: -->
+
+  customer_services.Tandem.students:
+    title: 02.08 - Модуль ''Студенты''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.moveStudents
+        title: Данные о студенте
+        direction: -->
+
+  customer_services.Tandem.moveStudents:
+    title: 02.08 - Модуль ''Движение студента''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.students
+        title: Изменение характеристик студента
+        direction: -->
+      - id: customer_services.Tandem.load
+        title: Данные о студенте
+        direction: -->
+
+  customer_services.Tandem.load:
+    title: 02.08 - Модуль ''Нагрузка''
+    entity: system
+    status: current-evolving
+
+  customer_services.Tandem.schedule:
+    title: 02.08 - Модуль ''Расписание''
+    entity: system
+    status: current-evolving
+
+  customer_services.Tandem.buildings:
+    title: 02.08 - Модуль ''Здания и помещения ''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.schedule
+        title: Информация о зданиях и помещениях
+        direction: -->
+
+  customer_services.Tandem.session:
+    title: 02.08 - Модуль ''Сессия''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.diplom
+        title: Итого завершения сессий
+        direction: -->
+
+  customer_services.Tandem.BRS:
+    title: 02.08 - Модуль ''Бально-рейтинговая система и журналы преподавателей''
+    entity: system
+    status: current-evolving
+    links:
+      - id: customer_services.Tandem.session
+        title: Успеваемость
+        direction: -->

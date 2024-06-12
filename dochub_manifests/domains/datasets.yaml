@@ -2,10 +2,15 @@ datasets:
   docs.all_systems:
     source: >
       (
-          components.$spread().{
-          "Система": $[0].*.title,
-          "Сущность": $[0].*.entity,
-          "Статус": $[0].*.status,
-          "Описание": $[0].*.description
-        }[Сущность = "system"]
+        components.$spread().{
+      "Система": $[0].*.title,
+      "Сущность": $[0].*.entity,
+      "Статус": $[0].*.status,
+      "Описание": $[0].*.description,
+      "Описание_статуса": $[0].*.status = "current-evolving" ? "Целевой дорабатываемый компонент" :
+                    $[0].*.status = "current-finalized" ? "Целевой недорабатываемый компонент" :
+                    $[0].*.status = "planed" ? "Запланированный компонент" :
+                    $[0].*.status = "non-target" ? "Нецелевой компонент"
+      }[Сущность = "system"]
+
       )

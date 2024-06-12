@@ -7,7 +7,7 @@ components:
     links:
       - id: resource_management.EDO
         title: Создание заявок на закупку продуктов, оборудования, инвентаря и других товаров и услуг, необходимых для работы общепита.
-        direction: ---->
+        direction: -->
 
 contexts:
   resource_management.Obshchepit.L1:

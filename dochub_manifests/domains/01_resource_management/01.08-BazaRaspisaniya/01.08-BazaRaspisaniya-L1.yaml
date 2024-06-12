@@ -7,7 +7,7 @@ components:
     links:
       - id: customer_services.Site_TIU
         title: Расписание занятий, включающее даты, время, аудитории, преподавателей, учебные дисциплины и прочую информацию, необходимую для отображения расписания на сайте.
-        direction: ---->
+        direction: -->
 contexts:
   resource_management.BazaRaspisaniya.L1:
     title: 01.08 - База расписания - L1 - Взаимодействие с другими системами

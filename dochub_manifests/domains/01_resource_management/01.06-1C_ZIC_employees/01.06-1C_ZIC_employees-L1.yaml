@@ -9,25 +9,25 @@ components:
     links:
       - id: resource_management.FondSocialnogoStrahovaniya
         title: Обмен данными
-        direction: ---->
+        direction: -->
       - id: customer_services.Site_TIU
         title: Передача данных о сотрудниках, включая ФИО, должность, контакты, департамент и другие данные, необходимые для отображения на сайте.
-        direction: ---->
+        direction: -->
       - id: customer_services.Modeus
         title: Данные о сотрудниках, включающие учебные планы, расписания занятий, нагрузку преподавателей и другие академические данные.
-        direction: ---->
+        direction: -->
       - id: resource_management.BGU
         title: Информация о сотрудниках и подразделениях, включая штатное расписание, финансирование, административные данные.
-        direction: ---->
+        direction: -->
       - id: resource_management.ConturBank
         title: Передача данных для автоматизации банковских операций, таких как перечисление зарплаты, налогов и других выплат.
-        direction: ---->
+        direction: -->
       - id: resource_management.Otchet
         title: Передача данных для формирования отчетности, включая финансовую отчетность, отчеты о заработной плате, налоговые декларации и т.д.
-        direction: ---->
+        direction: -->
       - id: resource_management.EDO
         title: Создание заявок на различные операции, такие как отпуск, командировки, закупки и другие административные процессы.
-        direction: ---->
+        direction: -->
 
 contexts:
   resource_management.ZIC_employees.L1:

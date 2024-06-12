@@ -14,7 +14,7 @@ entities:
             # Идентификатор презентации, которая будет использоваться в виджете
             presentation: technologies
             # Расположение слева
-            align: ">"
+            align: "<"
             # Порядок расположения
             order: 50
             # Определяем стиль виджета
@@ -33,18 +33,21 @@ entities:
             text: Статус
             sortable: true
             align: left
+          - value: description
+            text: Описание
+            sortable: true
+            align: left
 
         source: >
           (
               $COMPONENT_ID := $params.component;
               $manifest := $;
               
-              /* Плоский список секций технологий */
               $sections := $manifest.technologies.sections.$spread().{
             "id": $.$keys()[0],
             "title": $.*.title
             };
-              /* Плоский список технологий c джойном к секциям */
+              
               $tech := $manifest.technologies.items.$spread().{
             "id": $.$keys()[0],
             "title": $.*.title,
@@ -55,28 +58,35 @@ entities:
             }
             };
               
-              $components := [
-              components.$spread().{
+              $components := components.$spread().{
             "id": $keys()[0],
-            "link": "/architect/components/" & $keys()[0],
             "technologies": *.technologies
-            }
-            ];
+            }[$.id = $COMPONENT_ID];
               
-              $filtered_component := $filter($components, function($component) {
-              $component.id = $COMPONENT_ID
-            });
-              $filtered_technologies := $filtered_component[0].technologies;
+              $filtered_technologies := $components[0].technologies;
               
               $filtered_tech := $filter($tech, function($technology) {
               $technology.id in $filtered_technologies
             });
-              /* Развернуть поле "section" */
+              
               $expanded_tech := $filtered_tech.{
             "id": $.id,
             "title": $.title,
             "status": $.status,
             "section_id": $.section.id,
             "section_title": $.section.title
-            }[];                            
+            }[];
+              
+              $expanded_tech.{
+            "id": $.id,
+            "title": $.title,
+            "status": $.status,
+            "description": $.status = "hold" ? "Нецелевая технология" :
+                             $.status = "assess" ? "Технология находится на стадии оценки" :
+                             $.status = "trial" ? "Технология находится в стадии тестирования" :
+                             $.status = "adopt" ? "Технология активно применяется",
+            "section_id": $.section_id,
+            "section_title": $.section_title
+            }[]
+                    
           )

@@ -7,7 +7,7 @@ components:
     links:
       - id: customer_services.Tandem
         title: Данные об объеме и структуре приема, информация о поступающих, приказы о зачислении, включающие персональные данные абитуриентов, результаты экзаменов, статус поступления.
-        direction: ---->
+        direction: -->
 
 contexts:
   customer_services.ServisPostuplenieOnline.L1:

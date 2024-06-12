@@ -7,16 +7,16 @@ components:
     links:
       - id: resource_management.ZIC_employees
         title: Согласование заявок на отпуск, командировки, закупки и другие административные операции.
-        direction: ---->
+        direction: -->
       - id: resource_management.Obshchepit
         title: Согласование заявок на закупку товаров и услуг для общепита.
-        direction: ---->
+        direction: -->
       - id: resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
         title: Согласование заявок на закупки для нужд государственного учреждения.
-        direction: ---->
+        direction: -->
       - id: resource_management.BGU
         title: Согласование заявок на административные и хозяйственные операции.
-        direction: ---->
+        direction: -->
 
 contexts:
   resource_management.EDO.L1:

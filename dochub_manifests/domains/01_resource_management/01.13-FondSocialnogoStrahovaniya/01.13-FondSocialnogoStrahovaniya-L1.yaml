@@ -7,7 +7,7 @@ components:
     links:
       - id: resource_management.ZIC_employees
         title: Передача информации о сотрудниках, такой как персональные данные, страховые номера, заработная плата и другие данные, необходимые для страховых взносов.
-        direction: ---->
+        direction: -->
 
 
 contexts:

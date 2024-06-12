@@ -7,10 +7,10 @@ components:
     links:
       - id: resource_management.BGU
         title: Информация о контрагенте, включая юридические и финансовые данные, контактную информацию.
-        direction: ---->
+        direction: -->
       - id: resource_management.ZakupkiGosudarstvennogoUchrezhdeniya
         title: Информация о контрагенте, включая юридические и финансовые данные, контактную информацию.
-        direction: ---->
+        direction: -->
 contexts:
   resource_management.Kontragent.L1:
     title: 01.02 - 1C Электронный документооборот - L1 (Система в масштабе взаимодействия с другими системами)

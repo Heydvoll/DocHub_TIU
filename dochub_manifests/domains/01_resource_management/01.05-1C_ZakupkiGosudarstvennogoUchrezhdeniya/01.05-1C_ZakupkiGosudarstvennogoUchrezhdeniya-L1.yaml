@@ -7,13 +7,13 @@ components:
     links:
       - id: resource_management.EDO
         title: Создание заявок на закупки товаров и услуг для нужд учреждения.
-        direction: ---->
+        direction: -->
       - id: resource_management.OTC_MARKET
         title: План закупок.
-        direction: ---->
+        direction: -->
       - id: resource_management.EIS_Zakupki
         title: План закупок.
-        direction: ---->
+        direction: -->
 contexts:
   resource_management.ZakupkiGosudarstvennogoUchrezhdeniya.L1:
     title: 01.05 - 1C Закупки государственного учреждения - L1 (Система в масштабе взаимодействия с другими системами)
